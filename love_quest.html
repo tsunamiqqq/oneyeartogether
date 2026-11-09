@@ -1,0 +1,2891 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="One Year Together">
+    <meta name="theme-color" content="#08060c">
+    <title>One Year Together♡</title>
+    <link id="favicon-link" rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='40%25' r='65%25'%3E%3Cstop offset='0%25' stop-color='%232e1536'/%3E%3Cstop offset='100%25' stop-color='%2308060c'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='42' fill='url(%23g)'/%3E%3Cpath d='M90 138C90 138 38 103 38 64C38 45 53 32 70 32C81 32 87 38 90 46C93 38 99 32 110 32C127 32 142 45 142 64C142 103 90 138 90 138Z' fill='%23f4979c'/%3E%3C/svg%3E">
+    <link id="apple-touch-icon-link" rel="apple-touch-icon" sizes="180x180" href="">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Marck+Script&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#08060c',
+                        darkCard: '#14101a',
+                        roseAccent: '#f4979c',
+                        roseDeep: '#d96b75',
+                        roseSoft: '#fbd0d3',
+                        goldAccent: '#ebd1ae',
+                        kraft: '#dfc8b2',
+                        kraftDark: '#c5a78b',
+                        polaroid: '#e6dacb',
+                    },
+                    fontFamily: {
+                        hand: ['Caveat', 'Marck Script', 'cursive'],
+                        script: ['Marck Script', 'Caveat', 'cursive'],
+                        sans: ['Montserrat', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script>
+        function applyQuestionMarkSvg(imgEl) {
+            imgEl.onerror = null;
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+                <defs>
+                    <radialGradient id="bgQ" cx="50%" cy="50%" r="60%">
+                        <stop offset="0%" stop-color="#2a1042"/>
+                        <stop offset="55%" stop-color="#150924"/>
+                        <stop offset="100%" stop-color="#0b0612"/>
+                    </radialGradient>
+                    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ff55df"/>
+                        <stop offset="50%" stop-color="#d946ef"/>
+                        <stop offset="100%" stop-color="#7c3aed"/>
+                    </linearGradient>
+                    <linearGradient id="qGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#ff7af0"/>
+                        <stop offset="50%" stop-color="#c026d3"/>
+                        <stop offset="100%" stop-color="#7e22ce"/>
+                    </linearGradient>
+                    <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+                        <feGaussianBlur stdDeviation="14" result="blur"/>
+                        <feMerge>
+                            <feMergeNode in="blur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                <rect width="600" height="600" fill="url(#bgQ)"/>
+                <circle cx="300" cy="300" r="205" fill="rgba(192,38,211,0.08)" stroke="url(#ringGrad)" stroke-width="10" filter="url(#neonGlow)"/>
+                <circle cx="300" cy="300" r="190" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="2"/>
+                <circle cx="195" cy="215" r="4" fill="#ff99f5"/>
+                <circle cx="420" cy="250" r="5" fill="#e879f9"/>
+                <circle cx="390" cy="390" r="3.5" fill="#f0abfc"/>
+                <circle cx="210" cy="370" r="3" fill="#c084fc"/>
+                <text x="300" y="385" text-anchor="middle" fill="url(#qGrad)" stroke="#ffd6fa" stroke-width="4" font-family="Montserrat, sans-serif" font-weight="800" font-size="270" filter="url(#neonGlow)">?</text>
+            </svg>`;
+            imgEl.src = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+        }
+
+        function applyAnswerCalendarSvg(imgEl, mainDate, subBadge) {
+            imgEl.onerror = null;
+            const badgeMarkup = subBadge
+                ? `<rect x="135" y="355" width="330" height="70" rx="22" fill="#3b0764" stroke="#f0abfc" stroke-width="4"/>
+                   <text x="300" y="402" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="800" font-size="40">${subBadge}</text>`
+                : '';
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+                <defs>
+                    <radialGradient id="calBg" cx="50%" cy="45%" r="60%">
+                        <stop offset="0%" stop-color="#351252"/>
+                        <stop offset="65%" stop-color="#160a26"/>
+                        <stop offset="100%" stop-color="#0d0716"/>
+                    </radialGradient>
+                    <linearGradient id="pageGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#fae8ff"/>
+                        <stop offset="100%" stop-color="#d8b4fe"/>
+                    </linearGradient>
+                </defs>
+                <rect width="600" height="600" fill="url(#calBg)"/>
+                <rect x="95" y="120" width="410" height="300" rx="34" fill="url(#pageGrad)" stroke="#d946ef" stroke-width="8"/>
+                <path d="M95 154 C95 130 115 120 135 120 L465 120 C485 120 505 130 505 154 L505 205 L95 205 Z" fill="#4a044e" stroke="#f0abfc" stroke-width="4"/>
+                <rect x="185" y="88" width="22" height="62" rx="11" fill="#f5d0fe" stroke="#701a75" stroke-width="4"/>
+                <rect x="393" y="88" width="22" height="62" rx="11" fill="#f5d0fe" stroke="#701a75" stroke-width="4"/>
+                <text x="300" y="176" text-anchor="middle" fill="#ff80ed" font-size="36">♡</text>
+                <text x="300" y="305" text-anchor="middle" fill="#2e1065" font-family="Montserrat, sans-serif" font-weight="800" font-size="60">${mainDate}</text>
+                ${badgeMarkup}
+            </svg>`;
+            imgEl.src = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+        }
+
+        function applyFallbackSvg(imgEl, pathLabel) {
+            imgEl.onerror = null;
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+                <defs>
+                    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#1b1124"/>
+                        <stop offset="50%" stop-color="#381d33"/>
+                        <stop offset="100%" stop-color="#120c18"/>
+                    </linearGradient>
+                </defs>
+                <rect width="600" height="600" fill="url(#g)"/>
+                <circle cx="300" cy="240" r="110" fill="rgba(244,151,156,0.16)"/>
+                <path d="M300 300 C300 300 230 250 230 198 C230 172 252 155 275 155 C290 155 300 166 300 178 C300 166 310 155 325 155 C348 155 370 172 370 198 C370 250 300 300 300 300 Z" fill="none" stroke="#f4979c" stroke-width="5"/>
+                <text x="300" y="410" text-anchor="middle" fill="#fcecee" font-family="sans-serif" font-size="24">${pathLabel}</text>
+            </svg>`;
+            imgEl.src = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            background-color: #08060c;
+            color: #f9f4f5;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        #app {
+            height: 100vh;
+            height: 100dvh;
+        }
+
+        .global-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image: url('img/фон.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .global-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(10, 7, 15, 0.68) 0%, rgba(6, 4, 10, 0.88) 100%);
+        }
+
+        .quest-screen {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(14px) scale(0.985);
+            transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+            padding-left: env(safe-area-inset-left, 0px);
+            padding-right: env(safe-area-inset-right, 0px);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .quest-screen.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+            z-index: 10;
+        }
+
+        @media screen and (max-width: 460px) {
+            .quest-screen header {
+                padding-top: max(14px, env(safe-area-inset-top));
+                padding-bottom: 4px;
+            }
+            .quest-screen footer {
+                padding-top: 8px;
+                padding-bottom: max(12px, env(safe-area-inset-bottom));
+            }
+            .polaroid-frame {
+                padding: 10px 10px 14px 10px !important;
+                max-width: 245px !important;
+            }
+            .polaroid-frame > div.h-60,
+            .polaroid-frame > div.h-64 {
+                height: 195px !important;
+            }
+            .achievement-card {
+                min-height: 132px !important;
+                padding: 12px !important;
+            }
+            .ach-icon-ring {
+                width: 44px !important;
+                height: 44px !important;
+            }
+            #song-lyrics-viewport {
+                height: 185px !important;
+            }
+            .lyric-line {
+                padding: 7px 12px !important;
+                font-size: 1.45rem !important;
+            }
+            .final-action-btn {
+                width: 58px !important;
+                height: 58px !important;
+            }
+        }
+
+        .logo-heart-tilted {
+            display: inline-block;
+            color: #f4979c;
+            font-size: 1.35rem;
+            line-height: 1;
+            transform: rotate(22deg) translateY(5px);
+            margin-left: 3px;
+            vertical-align: baseline;
+        }
+
+        .polaroid-frame {
+            background: linear-gradient(145deg, #ece1d3 0%, #dac9b6 52%, #ccb69e 100%);
+            padding: 14px 14px 16px 14px;
+            box-shadow: 
+                0 22px 50px rgba(0, 0, 0, 0.8),
+                inset 0 0 24px rgba(102, 75, 50, 0.3),
+                0 0 1px rgba(255, 255, 255, 0.4);
+            position: relative;
+            border-radius: 4px;
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+        }
+
+        .polaroid-frame::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.15;
+            background-image: radial-gradient(#5c4328 0.75px, transparent 0.75px), radial-gradient(#7a5a3a 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+        }
+
+        .polaroid-frame:hover {
+            transform: rotate(0deg) scale(1.02) !important;
+            box-shadow: 0 28px 60px rgba(0, 0, 0, 0.88), 0 0 26px rgba(244, 151, 156, 0.25);
+        }
+
+        .polaroid-caption {
+            padding-top: 10px;
+            padding-left: 4px;
+            padding-right: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            font-family: 'Caveat', 'Marck Script', cursive;
+            font-size: 1.45rem;
+            line-height: 1.15;
+            color: #3a281d;
+            text-align: left;
+            position: relative;
+            z-index: 5;
+        }
+
+        .masking-tape {
+            position: absolute;
+            width: 96px;
+            height: 26px;
+            background: rgba(232, 219, 201, 0.55);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.28), inset 0 0 8px rgba(255, 255, 255, 0.25);
+            border-left: 2px dashed rgba(255, 255, 255, 0.3);
+            border-right: 2px dashed rgba(255, 255, 255, 0.3);
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .wax-seal {
+            width: 42px;
+            height: 42px;
+            border-radius: 9999px;
+            background: radial-gradient(circle at 35% 30%, #e66c75 0%, #b33944 60%, #7d1d26 100%);
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.55),
+                inset 0 2px 4px rgba(255, 195, 195, 0.45),
+                inset 0 -3px 6px rgba(60, 10, 15, 0.7);
+            border: 2px dashed rgba(255, 200, 200, 0.28);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffdfe2;
+            font-family: 'Caveat', cursive;
+            font-size: 19px;
+        }
+
+        .kraft-card {
+            background: linear-gradient(135deg, #e5d0b9 0%, #d4b89c 55%, #c5a585 100%);
+            color: #2b1e16;
+            box-shadow: 
+                0 14px 30px rgba(0, 0, 0, 0.65),
+                inset 0 0 32px rgba(94, 61, 34, 0.28);
+            border-radius: 6px;
+            position: relative;
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .kraft-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.14;
+            background-image: radial-gradient(#4a3019 0.8px, transparent 0.8px);
+            background-size: 16px 16px;
+        }
+
+        .kraft-card:hover {
+            transform: translateY(-5px) rotate(0deg) scale(1.02) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(244, 151, 156, 0.35);
+        }
+
+        .rose-glass-card {
+            background: linear-gradient(160deg, rgba(28, 20, 35, 0.84) 0%, rgba(14, 10, 20, 0.92) 100%);
+            border: 1px solid rgba(244, 151, 156, 0.35);
+            box-shadow: 0 10px 34px rgba(0, 0, 0, 0.55), inset 0 0 20px rgba(244, 151, 156, 0.06);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .achievement-card {
+            background: radial-gradient(circle at 50% 0%, rgba(244, 151, 156, 0.16) 0%, rgba(28, 19, 38, 0.88) 55%, rgba(14, 9, 20, 0.96) 100%);
+            border: 1px solid rgba(244, 151, 156, 0.35);
+            border-radius: 22px;
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(14px);
+            transition: all 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 15%;
+            right: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f4979c, #ffe4e6, #f4979c, transparent);
+            opacity: 0.85;
+        }
+
+        .achievement-card::after {
+            content: "";
+            position: absolute;
+            inset: 6px;
+            border-radius: 16px;
+            border: 1px solid rgba(244, 151, 156, 0.12);
+            pointer-events: none;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-6px) scale(1.025);
+            border-color: rgba(244, 151, 156, 0.85);
+            box-shadow: 0 20px 42px rgba(244, 151, 156, 0.25), inset 0 0 24px rgba(244, 151, 156, 0.08);
+        }
+
+        .ach-icon-ring {
+            width: 54px;
+            height: 54px;
+            border-radius: 9999px;
+            background: radial-gradient(circle at 30% 30%, rgba(244, 151, 156, 0.32), rgba(244, 151, 156, 0.08));
+            border: 1.5px solid rgba(244, 151, 156, 0.55);
+            box-shadow: 0 0 20px rgba(244, 151, 156, 0.28), inset 0 0 12px rgba(244, 151, 156, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffdce0;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .achievement-card:hover .ach-icon-ring {
+            transform: scale(1.1) rotate(4deg);
+            box-shadow: 0 0 28px rgba(244, 151, 156, 0.55), inset 0 0 14px rgba(244, 151, 156, 0.35);
+        }
+
+        @keyframes redFlashOnce {
+            0% { opacity: 0; }
+            22% { opacity: 0.78; }
+            100% { opacity: 0; }
+        }
+
+        .red-flash-active {
+            animation: redFlashOnce 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .option-pill {
+            background: rgba(20, 15, 26, 0.82);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 9999px;
+            transition: all 0.25s ease;
+        }
+
+        .option-pill:hover {
+            border-color: rgba(244, 151, 156, 0.65);
+            background: rgba(244, 151, 156, 0.12);
+            transform: translateX(4px);
+        }
+
+        .option-pill.selected {
+            border: 1.5px solid #f4979c;
+            background: linear-gradient(90deg, rgba(244, 151, 156, 0.28) 0%, rgba(244, 151, 156, 0.08) 100%);
+            box-shadow: 0 0 22px rgba(244, 151, 156, 0.38), inset 0 0 12px rgba(244, 151, 156, 0.2);
+        }
+
+        .option-pill.review-green {
+            border: 2px solid #22c55e !important;
+            background: linear-gradient(90deg, rgba(34, 197, 94, 0.32) 0%, rgba(34, 197, 94, 0.1) 100%) !important;
+            box-shadow: 0 0 24px rgba(34, 197, 94, 0.45), inset 0 0 12px rgba(34, 197, 94, 0.25) !important;
+            color: #dcfce7 !important;
+        }
+
+        .option-pill.review-red {
+            border: 2px solid #ef4444 !important;
+            background: linear-gradient(90deg, rgba(239, 68, 68, 0.32) 0%, rgba(239, 68, 68, 0.1) 100%) !important;
+            box-shadow: 0 0 24px rgba(239, 68, 68, 0.45), inset 0 0 12px rgba(239, 68, 68, 0.25) !important;
+            color: #fee2e2 !important;
+        }
+
+        .btn-disabled {
+            opacity: 0.32 !important;
+            pointer-events: none !important;
+            cursor: not-allowed !important;
+            filter: grayscale(0.55) !important;
+            box-shadow: none !important;
+        }
+
+        .answer-photo-stage {
+            background: radial-gradient(circle at 50% 38%, #2e1240 0%, #160b24 58%, #0e0817 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 28px rgba(192, 68, 255, 0.28);
+        }
+
+        .answer-photo-stage::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(232, 121, 249, 0.16) 1px, transparent 1px);
+            background-size: 16px 16px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .answer-photo-stage::after {
+            content: "♡   ✦   ♡";
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: 6px;
+            color: rgba(240, 171, 252, 0.65);
+            text-shadow: 0 0 12px rgba(217, 70, 239, 0.9);
+            background: linear-gradient(to top, rgba(38, 12, 58, 0.9) 0%, rgba(28, 10, 42, 0.45) 60%, transparent 100%);
+            padding-top: 22px;
+            padding-bottom: 4px;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .answer-calendar-img {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+            transform: translateY(5%) scale(1.06);
+            filter: drop-shadow(0 10px 22px rgba(168, 85, 247, 0.45)) contrast(1.06) saturate(1.1);
+            transition: transform 0.45s ease;
+        }
+
+        .polaroid-frame:hover .answer-calendar-img {
+            transform: translateY(3%) scale(1.1);
+        }
+
+        @keyframes dropNotePhoto {
+            0% {
+                opacity: 0.7;
+                transform: translateY(-10px) rotate(2deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(22px) rotate(2deg);
+            }
+        }
+
+        .note-photo-dropped {
+            animation: dropNotePhoto 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .coral-btn {
+            background: linear-gradient(135deg, #f7a6ab 0%, #e57f86 100%);
+            color: #1a0e12;
+            font-weight: 600;
+            box-shadow: 0 6px 25px rgba(244, 151, 156, 0.45);
+            transition: all 0.3s ease;
+        }
+
+        .coral-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 10px 32px rgba(244, 151, 156, 0.68);
+            filter: brightness(1.05);
+        }
+
+        .outline-rose-btn {
+            background: rgba(22, 17, 27, 0.78);
+            border: 1px solid rgba(244, 151, 156, 0.55);
+            color: #f7e8ea;
+            box-shadow: 0 0 18px rgba(244, 151, 156, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .outline-rose-btn:hover {
+            background: rgba(244, 151, 156, 0.22);
+            border-color: #f4979c;
+            box-shadow: 0 0 26px rgba(244, 151, 156, 0.38);
+            transform: translateY(-2px);
+        }
+
+        input[type="range"].romantic-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            background: rgba(255, 255, 255, 0.18);
+            height: 6px;
+            border-radius: 999px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        input[type="range"].romantic-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #f4979c;
+            box-shadow: 0 0 10px rgba(244, 151, 156, 0.9);
+            border: 2px solid #fff;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+
+        input[type="range"].romantic-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.25);
+        }
+
+        .lyric-line {
+            transition: background-color 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+            cursor: pointer;
+            border-radius: 10px;
+            padding: 10px 18px;
+            opacity: 0.38;
+            border: none !important;
+            outline: none !important;
+            background: transparent;
+        }
+
+        .lyric-line:hover {
+            opacity: 0.75;
+        }
+
+        .lyric-line.active-lyric {
+            opacity: 1;
+            color: #ffffff;
+            font-weight: 600;
+            background: linear-gradient(90deg, rgba(120, 48, 62, 0.62) 0%, rgba(78, 32, 44, 0.28) 100%);
+            text-shadow: 0 0 16px rgba(244, 151, 156, 0.6);
+            border: none !important;
+            outline: none !important;
+        }
+
+        .puzzle-tile {
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            cursor: pointer;
+            background-size: 300% 300%;
+            background-repeat: no-repeat;
+        }
+
+        .puzzle-tile.selected-tile {
+            transform: scale(0.92);
+            border: 2.5px solid #f4979c !important;
+            box-shadow: 0 0 22px rgba(244, 151, 156, 0.85);
+            z-index: 5;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b090e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(244, 151, 156, 0.35);
+            border-radius: 99px;
+        }
+    </style>
+</head>
+<body class="relative select-none">
+
+    <div class="global-bg"></div>
+
+    <canvas id="particlesCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <div id="red-flash-overlay" class="fixed inset-0 pointer-events-none z-50 opacity-0"
+         style="background: radial-gradient(circle at center, rgba(239, 68, 68, 0.45) 0%, rgba(185, 28, 28, 0.78) 100%);"></div>
+
+    <div id="file-error-toast" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 px-6 py-3 rounded-full bg-[#2a0e17]/95 border border-red-400/70 text-red-100 text-xs sm:text-sm shadow-[0_10px_30px_rgba(239,68,68,0.4)] flex items-center gap-2.5">
+        <span>⚠️</span>
+        <span>Данный файл недоступен</span>
+    </div>
+
+    <div id="file-success-toast" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 px-6 py-3 rounded-full bg-[#0f291a]/95 border border-[#84cc16]/80 text-[#d9f99d] text-xs sm:text-sm shadow-[0_10px_30px_rgba(132,204,22,0.4)] flex items-center gap-2.5">
+        <span>✔</span>
+        <span id="file-success-toast-text">Файл загружен</span>
+    </div>
+
+    <input type="file" id="loadAnswersFileInput" accept=".html,text/html" class="hidden" onchange="handleLoadAnswersFile(event)" />
+
+    <div id="app" class="relative w-full h-screen overflow-hidden z-10">
+
+        <section id="screen-1" class="quest-screen active">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between gap-3">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 tracking-wide leading-tight">
+                    <span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span>
+                </div>
+                <button onclick="document.getElementById('loadAnswersFileInput').click()" class="text-xs text-white/40 hover:text-roseAccent transition flex items-center gap-1.5 shrink-0 text-right" title="Загрузить сохранённый файл результаты_квеста.html">
+                    <span>📂 Проверить сохранённый файл</span>
+                </button>
+            </header>
+
+            <main class="w-full max-w-4xl mx-auto px-6 my-auto flex flex-col items-center justify-center text-center py-6">
+                <div class="relative inline-block mb-8">
+                    <h1 class="font-hand text-6xl sm:text-7xl lg:text-8xl text-white leading-[1.06] tracking-wide transform -rotate-2 drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
+                        Нашим отношениям<br/>
+                        <span class="inline-flex items-center justify-center gap-2">
+                            <span>уже год</span>
+                            <svg class="w-8 h-8 sm:w-10 sm:h-10 text-roseAccent transform rotate-12 translate-y-4 sm:translate-y-5" viewBox="0 0 32 32" fill="none">
+                                <path d="M16 27C16 27 5 19.8 5 11.5C5 7.8 8 5 11.5 5C13.8 5 15.2 6.3 16 7.8C16.8 6.3 18.2 5 20.5 5C24 5 27 7.8 27 11.5C27 19.8 16 27 16 27Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </h1>
+                </div>
+
+                <div class="rose-glass-card rounded-2xl px-6 sm:px-8 py-4 mb-6 border border-roseAccent/40">
+                    <div class="text-xs uppercase tracking-widest text-roseAccent/85 mb-2">МЫ ВМЕСТЕ УЖЕ:</div>
+                    <div class="flex items-center justify-center gap-4 sm:gap-6 text-center">
+                        <div>
+                            <div id="timer-days" class="font-hand text-4xl sm:text-5xl text-white leading-none">365</div>
+                            <div class="text-[11px] text-white/60 mt-1">дней</div>
+                        </div>
+                        <span class="text-roseAccent/50 text-2xl">:</span>
+                        <div>
+                            <div id="timer-hours" class="font-hand text-4xl sm:text-5xl text-white leading-none">00</div>
+                            <div class="text-[11px] text-white/60 mt-1">часов</div>
+                        </div>
+                        <span class="text-roseAccent/50 text-2xl">:</span>
+                        <div>
+                            <div id="timer-mins" class="font-hand text-4xl sm:text-5xl text-white leading-none">00</div>
+                            <div class="text-[11px] text-white/60 mt-1">минут</div>
+                        </div>
+                        <span class="text-roseAccent/50 text-2xl">:</span>
+                        <div>
+                            <div id="timer-secs" class="font-hand text-4xl sm:text-5xl text-roseAccent leading-none">00</div>
+                            <div class="text-[11px] text-white/60 mt-1">секунд</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="goToScreen(2)" class="coral-btn px-10 py-4 rounded-full text-base sm:text-lg flex items-center gap-3 group">
+                    <span>Начать квест</span>
+                    <span class="transform group-hover:translate-x-1 transition">→</span>
+                </button>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4"></footer>
+        </section>
+
+        <section id="screen-2" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <main class="w-full max-w-5xl mx-auto px-6 sm:px-10 my-auto py-4 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7 flex flex-col items-start text-left">
+                    <h2 class="font-hand text-4xl sm:text-5xl text-white mb-6 tracking-wide">
+                        Вопрос 1: Какой был день нашего знакомства?
+                    </h2>
+
+                    <div class="w-full max-w-md space-y-3" id="q1-options">
+                        <button onclick="selectQuizOption('q1', 0, 'A 20.11.2025', this)" class="option-pill w-full px-5 py-3.5 text-left text-xs sm:text-sm text-white/90 flex items-center gap-4">
+                            <span class="text-roseAccent font-semibold">A</span>
+                            <span>20.11.2025</span>
+                        </button>
+                        <button onclick="selectQuizOption('q1', 1, 'B 20.10.2025', this)" class="option-pill w-full px-5 py-3.5 text-left text-xs sm:text-sm text-white/90 flex items-center gap-4">
+                            <span class="text-roseAccent font-semibold">B</span>
+                            <span>20.10.2025</span>
+                        </button>
+                        <button onclick="selectQuizOption('q1', 2, 'C 22.10.2025', this)" class="option-pill w-full px-5 py-3.5 text-left text-xs sm:text-sm text-white/90 flex items-center gap-4">
+                            <span class="text-roseAccent font-semibold">C</span>
+                            <span>22.10.2025</span>
+                        </button>
+                        <button onclick="selectQuizOption('q1', 3, 'D 21.10.2025', this)" class="option-pill w-full px-5 py-3.5 text-left text-xs sm:text-sm text-white/90 flex items-center gap-4">
+                            <span class="text-roseAccent font-semibold">D</span>
+                            <span>21.10.2025</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="polaroid-frame w-64 sm:w-72 transform rotate-3 relative">
+                        <div class="masking-tape -top-3 left-1/2 -translate-x-1/2 transform -rotate-3"></div>
+                        <div class="w-full h-60 sm:h-68 overflow-hidden bg-[#120d1a] rounded-sm relative">
+                            <img src="" alt="Вопрос 1" class="w-full h-full object-cover" onerror="applyQuestionMarkSvg(this)"/>
+                        </div>
+                        <div class="polaroid-caption">
+                            <span>Наше знакомство</span>
+                            <span class="shrink-0">♡</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goToScreen(1)" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти на главную</span>
+                </button>
+                <button id="q1-next-btn" onclick="submitQuestionStep('q1', 3, 4)" class="coral-btn btn-disabled px-7 py-3 rounded-full text-xs sm:text-sm">
+                    Проверить ответ →
+                </button>
+            </footer>
+        </section>
+
+        <section id="screen-3" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <main class="w-full max-w-5xl mx-auto px-6 sm:px-10 my-auto py-4 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-6 flex justify-center">
+                    <div class="polaroid-frame w-72 sm:w-80 transform -rotate-2 relative">
+                        <div class="masking-tape -top-3 left-8 transform -rotate-6"></div>
+                        <div class="masking-tape -top-3 right-8 transform rotate-3"></div>
+                        <div class="w-full h-64 sm:h-72 answer-photo-stage rounded-sm">
+                            <img src="" alt="20.10.2025" class="answer-calendar-img" onerror="applyAnswerCalendarSvg(this, '20.10.2025', '')"/>
+                        </div>
+                        <div class="polaroid-caption">
+                            <span>20.10.2025</span>
+                            <span class="shrink-0">♡</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-6 flex flex-col items-start text-left space-y-4">
+                    <div id="q1-feedback-badge" class="hidden px-4 py-2 rounded-full text-xs sm:text-sm font-medium"></div>
+
+                    <h2 class="font-hand text-4xl sm:text-5xl text-white tracking-wide">
+                        Правильный ответ: <span class="whitespace-nowrap">20.10.2025 🤍</span>
+                    </h2>
+
+                    <p class="text-white/60 text-sm sm:text-base font-light leading-relaxed max-w-md">
+                        Это был тот день когда мы впервые познакомились в дайвинчике. Ты думала что я буду просто интрижкой, а я лишь думал что просто пообщаемся пару дней.
+                    </p>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goToScreen(2)" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <button onclick="goToScreen(4)" class="coral-btn px-7 py-3 rounded-full text-xs sm:text-sm">
+                    Перейти далее →
+                </button>
+            </footer>
+        </section>
+
+        <section id="screen-4" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <main class="w-full max-w-5xl mx-auto px-6 sm:px-10 my-auto py-4 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7 flex flex-col items-start text-left">
+                    <h2 class="font-hand text-4xl sm:text-5xl text-white mb-6 tracking-wide leading-tight">
+                        Вопрос 2: В какой день мы начали отношения<br/>и сколько прошло с того момента?
+                    </h2>
+
+                    <div class="w-full max-w-md space-y-3" id="q2-options">
+                        <button onclick="selectQuizOption('q2', 0, 'A 10.11.2025 / 363 дня', this)" class="option-pill w-full px-5 py-3.5 text-left text-xs sm:text-sm text-white/90 flex items-center gap-4">
+                            <span class="text-roseAccent font-semibold">A</span>
+                            <span>10.11.2025 / 363 дня</span>
+                        </button>
+                        <button onclick="selectQuizOption('q2', 1, 'B 08.11.2025 / 365 дней', this)" class="option-pill w-full px-5 py-3.5 text-left text-xs sm:text-sm text-white/90 flex items-center gap-4">
+                            <span class="text-roseAccent font-semibold">B</span>
+                            <span>08.11.2025 / 365 дней</span>
+                        </button>
+                        <button onclick="selectQuizOption('q2', 2, 'C 10.11.2025 / 365 дней', this)" class="option-pill w-full px-5 py-3.5 text-left text-xs sm:text-sm text-white/90 flex items-center gap-4">
+                            <span class="text-roseAccent font-semibold">C</span>
+                            <span>10.11.2025 / 365 дней</span>
+                        </button>
+                        <button onclick="selectQuizOption('q2', 3, 'D 11.11.2025 / 366 дней', this)" class="option-pill w-full px-5 py-3.5 text-left text-xs sm:text-sm text-white/90 flex items-center gap-4">
+                            <span class="text-roseAccent font-semibold">D</span>
+                            <span>11.11.2025 / 366 дней</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="polaroid-frame w-64 sm:w-72 transform rotate-2 relative">
+                        <div class="masking-tape -top-3 left-1/2 -translate-x-1/2 transform -rotate-2"></div>
+                        <div class="w-full h-60 sm:h-68 overflow-hidden bg-[#120d1a] rounded-sm relative">
+                            <img src="" alt="Вопрос 2" class="w-full h-full object-cover" onerror="applyQuestionMarkSvg(this)"/>
+                        </div>
+                        <div class="polaroid-caption">
+                            <span>Дата начала отношений</span>
+                            <span class="shrink-0">♡</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goBackFromQuestion(2)" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <button id="q2-next-btn" onclick="submitQuestionStep('q2', 5, 6)" class="coral-btn btn-disabled px-7 py-3 rounded-full text-xs sm:text-sm">
+                    Посмотреть ответ →
+                </button>
+            </footer>
+        </section>
+
+        <section id="screen-5" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <main class="w-full max-w-5xl mx-auto px-6 sm:px-10 my-auto py-4 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-6 flex justify-center">
+                    <div class="polaroid-frame w-72 sm:w-80 transform -rotate-2 relative">
+                        <div class="masking-tape -top-3 left-1/2 -translate-x-1/2 transform rotate-2"></div>
+                        <div class="w-full h-64 sm:h-72 answer-photo-stage rounded-sm">
+                            <img src="" alt="10.11.2025" class="answer-calendar-img" onerror="applyAnswerCalendarSvg(this, '10.11.2025', '365 дней')"/>
+                        </div>
+                        <div class="polaroid-caption">
+                            <span>10.11.2025</span>
+                            <span class="shrink-0">♡</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-6 flex flex-col items-start text-left space-y-4">
+                    <div id="q2-feedback-badge" class="hidden px-4 py-2 rounded-full text-xs sm:text-sm font-medium"></div>
+
+                    <h2 class="font-hand text-4xl sm:text-5xl text-white tracking-wide leading-tight">
+                        Правильный ответ 10.11.2025 / <span class="whitespace-nowrap">365 дней 🤍</span>
+                    </h2>
+
+                    <p class="text-white/60 text-sm sm:text-base font-light leading-relaxed max-w-md">
+                        Эта дата нам запомнится на всю жизнь. Ведь в этот день мы начали отношения, которые продлились уже целый год.
+                    </p>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goToScreen(4)" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <button onclick="goToScreen(6)" class="coral-btn px-7 py-3 rounded-full text-xs sm:text-sm">
+                    Перейти далее →
+                </button>
+            </footer>
+        </section>
+
+        <section id="screen-6" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <main class="w-full max-w-5xl mx-auto px-6 sm:px-10 my-auto py-4 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7 flex flex-col items-start text-left">
+                    <h2 class="font-hand text-4xl sm:text-5xl text-white mb-6 tracking-wide leading-tight">
+                        Вопрос 3: В какой день я впервые приехал к тебе домой на ночевку?
+                    </h2>
+
+                    <div class="w-full max-w-md space-y-3" id="q3-options">
+                        <button onclick="selectQuizOption('q3', 0, 'A 4 декабря', this)" class="option-pill w-full px-5 py-3.5 text-left text-xs sm:text-sm text-white/90 flex items-center gap-4">
+                            <span class="text-roseAccent font-semibold">A</span>
+                            <span>4 декабря</span>
+                        </button>
+                        <button onclick="selectQuizOption('q3', 1, 'B 5 декабря', this)" class="option-pill w-full px-5 py-3.5 text-left text-xs sm:text-sm text-white/90 flex items-center gap-4">
+                            <span class="text-roseAccent font-semibold">B</span>
+                            <span>5 декабря</span>
+                        </button>
+                        <button onclick="selectQuizOption('q3', 2, 'C 6 декабря', this)" class="option-pill w-full px-5 py-3.5 text-left text-xs sm:text-sm text-white/90 flex items-center gap-4">
+                            <span class="text-roseAccent font-semibold">C</span>
+                            <span>6 декабря</span>
+                        </button>
+                        <button onclick="selectQuizOption('q3', 3, 'D 7 декабря', this)" class="option-pill w-full px-5 py-3.5 text-left text-xs sm:text-sm text-white/90 flex items-center gap-4">
+                            <span class="text-roseAccent font-semibold">D</span>
+                            <span>7 декабря</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="polaroid-frame w-64 sm:w-72 transform rotate-3 relative">
+                        <div class="masking-tape -top-3 left-1/2 -translate-x-1/2 transform -rotate-3"></div>
+                        <div class="w-full h-60 sm:h-68 overflow-hidden bg-[#120d1a] rounded-sm relative">
+                            <img src="" alt="Вопрос 3" class="w-full h-full object-cover" onerror="applyQuestionMarkSvg(this)"/>
+                        </div>
+                        <div class="polaroid-caption">
+                            <span>Первая ночевка</span>
+                            <span class="shrink-0">♡</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goBackFromQuestion(3)" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <button id="q3-next-btn" onclick="submitQuestionStep('q3', 7, 8)" class="coral-btn btn-disabled px-7 py-3 rounded-full text-xs sm:text-sm">
+                    Проверить ответ →
+                </button>
+            </footer>
+        </section>
+
+        <section id="screen-7" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <main class="w-full max-w-5xl mx-auto px-6 sm:px-10 my-auto py-4 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-6 flex justify-center">
+                    <div class="polaroid-frame w-72 sm:w-80 transform -rotate-2 relative">
+                        <div class="masking-tape -top-3 left-1/2 -translate-x-1/2 transform rotate-2"></div>
+                        <div class="w-full h-64 sm:h-72 answer-photo-stage rounded-sm">
+                            <img src="" alt="5 декабря" class="answer-calendar-img" onerror="applyAnswerCalendarSvg(this, '5 декабря', '')"/>
+                        </div>
+                        <div class="polaroid-caption">
+                            <span>5 декабря</span>
+                            <span class="shrink-0">♡</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-6 flex flex-col items-start text-left space-y-4">
+                    <div id="q3-feedback-badge" class="hidden px-4 py-2 rounded-full text-xs sm:text-sm font-medium"></div>
+
+                    <h2 class="font-hand text-4xl sm:text-5xl text-white tracking-wide">
+                        Правильный ответ: <span class="whitespace-nowrap">5 декабря 🤍</span>
+                    </h2>
+
+                    <p class="text-white/60 text-sm sm:text-base font-light leading-relaxed max-w-md">
+                        Этот день я ждал практически целую неделю, из-за работы, а когда этот день настал, уже было как страшно так и прикольно. Именно с этого дня и начались наши ночевки каждую неделю.
+                    </p>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goToScreen(6)" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <button onclick="goToScreen(8)" class="coral-btn px-7 py-3 rounded-full text-xs sm:text-sm">
+                    Перейти далее →
+                </button>
+            </footer>
+        </section>
+
+        <section id="screen-8" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <main class="w-full max-w-5xl mx-auto px-6 sm:px-10 my-auto py-4 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7 flex flex-col items-start text-left">
+                    <h2 class="font-hand text-4xl sm:text-5xl text-white mb-4 tracking-wide leading-tight">
+                        Вопрос 4: Какое бы ты предпочла свидание?
+                    </h2>
+
+                    <textarea id="q4-textarea" rows="7" oninput="saveQ4Text(this.value)" placeholder="Напиши сюда то как и где ты хотела провести свидание..." class="w-full max-w-lg rounded-2xl bg-[#140f1d]/85 border border-roseAccent/45 p-4 text-sm sm:text-base text-white placeholder-white/35 outline-none focus:border-roseAccent shadow-xl resize-y leading-relaxed select-text"></textarea>
+                </div>
+
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="polaroid-frame w-64 sm:w-72 transform rotate-2 relative">
+                        <div class="masking-tape -top-3 left-1/2 -translate-x-1/2 transform -rotate-2"></div>
+                        <div class="w-full h-60 sm:h-68 overflow-hidden bg-[#120d1a] rounded-sm relative">
+                            <img src="" alt="Вопрос 4" class="w-full h-full object-cover" onerror="applyQuestionMarkSvg(this)"/>
+                        </div>
+                        <div class="polaroid-caption">
+                            <span>Какое бы хотела свидание?</span>
+                            <span class="shrink-0">♡</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goBackFromQuestion(4)" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <button id="q4-next-btn" onclick="handleQ4NextOrFinish()" class="coral-btn btn-disabled px-7 py-3 rounded-full text-xs sm:text-sm">
+                    Перейти дальше →
+                </button>
+            </footer>
+        </section>
+
+        <section id="screen-9" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <main class="w-full max-w-4xl mx-auto px-6 my-auto py-4 text-center">
+                <h2 class="font-hand text-4xl sm:text-5xl text-white mb-2">
+                    Что я люблю в тебе?
+                </h2>
+                <p class="text-white/60 text-xs sm:text-sm font-light mb-8">
+                    Нажми на карточку, чтобы открыть мои записки для тебя.
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-5 max-w-3xl mx-auto">
+                    <button onclick="openLoveNoteScreen(0)" class="kraft-card w-44 sm:w-52 p-5 min-h-[130px] flex flex-col items-center justify-center gap-2 transform -rotate-2">
+                        <div class="masking-tape -top-2.5 left-1/2 -translate-x-1/2 w-16 h-4"></div>
+                        <span class="font-hand text-2xl sm:text-3xl text-[#2b1d14]">Твоя улыбка</span>
+                        <div class="wax-seal !w-9 !h-9 !text-base">♡</div>
+                    </button>
+
+                    <button onclick="openLoveNoteScreen(1)" class="kraft-card w-44 sm:w-52 p-5 min-h-[130px] flex flex-col items-center justify-center gap-2 transform rotate-1">
+                        <div class="masking-tape -top-2.5 left-1/2 -translate-x-1/2 w-16 h-4"></div>
+                        <span class="font-hand text-2xl sm:text-3xl text-[#2b1d14]">Твоя доброта</span>
+                        <div class="wax-seal !w-9 !h-9 !text-base">✦</div>
+                    </button>
+
+                    <button onclick="openLoveNoteScreen(2)" class="kraft-card w-44 sm:w-52 p-5 min-h-[130px] flex flex-col items-center justify-center gap-2 transform -rotate-1">
+                        <div class="masking-tape -top-2.5 left-1/2 -translate-x-1/2 w-16 h-4"></div>
+                        <span class="font-hand text-2xl sm:text-3xl text-[#2b1d14]">Твой смех</span>
+                        <div class="wax-seal !w-9 !h-9 !text-base">♪</div>
+                    </button>
+
+                    <button onclick="openLoveNoteScreen(3)" class="kraft-card w-44 sm:w-52 p-5 min-h-[130px] flex flex-col items-center justify-center gap-2 transform rotate-2">
+                        <div class="masking-tape -top-2.5 left-1/2 -translate-x-1/2 w-16 h-4"></div>
+                        <span class="font-hand text-2xl sm:text-3xl text-[#2b1d14]">Твоя милость</span>
+                        <div class="wax-seal !w-9 !h-9 !text-base">❀</div>
+                    </button>
+
+                    <button onclick="openLoveNoteScreen(4)" class="kraft-card w-44 sm:w-52 p-5 min-h-[130px] flex flex-col items-center justify-center gap-2 transform -rotate-1">
+                        <div class="masking-tape -top-2.5 left-1/2 -translate-x-1/2 w-16 h-4"></div>
+                        <span class="font-hand text-2xl sm:text-3xl text-[#2b1d14]">Ты просто ты</span>
+                        <div class="wax-seal !w-9 !h-9 !text-base">∞</div>
+                    </button>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goToScreen(8)" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <div></div>
+            </footer>
+        </section>
+
+        <section id="screen-10" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <main class="w-full max-w-5xl mx-auto px-6 sm:px-10 my-auto py-4 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-6 flex flex-col items-center">
+                    <div class="kraft-card w-full max-w-sm p-7 sm:p-9 transform -rotate-2 relative">
+                        <div class="masking-tape -top-3 left-1/2 -translate-x-1/2"></div>
+                        <div id="love-note-title" class="text-xs uppercase tracking-widest text-[#5e4332]/80 font-semibold mb-2">
+                            Твоя улыбка
+                        </div>
+                        <p id="love-reason-text" class="font-hand text-3xl sm:text-4xl text-[#2a1c13] leading-relaxed">
+                            Я люблю твою улыбку. Она греет меня даже в самый холодный день
+                        </p>
+                        <div class="flex items-center justify-between mt-6">
+                            <span class="text-xs uppercase tracking-widest text-[#5e4332] font-semibold">МАКСИМКА</span>
+                            <div class="wax-seal !w-9 !h-9 !text-base">♡</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-6 flex flex-col items-center md:items-end mt-6 sm:mt-10">
+                    <div id="note-polaroid-card" class="polaroid-frame note-photo-dropped w-64 sm:w-72 relative">
+                        <div class="masking-tape -top-3 left-1/2 -translate-x-1/2 transform -rotate-2"></div>
+                        <div class="w-full h-60 sm:h-68 overflow-hidden bg-[#1a141b]">
+                            <img src="img/для-записок.jpg" alt="Для записок" class="w-full h-full object-cover" onerror="applyFallbackSvg(this, 'img/для-записок.jpg')"/>
+                        </div>
+                        <div class="polaroid-caption justify-center">
+                            <span>Мяу ♡</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="prevLoveNoteStep()" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <button id="next-love-note-btn" onclick="nextLoveNoteStep()" class="coral-btn px-7 py-3 rounded-full text-xs sm:text-sm">
+                    Перейти далее →
+                </button>
+            </footer>
+        </section>
+
+        <section id="screen-11" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <main class="w-full max-w-5xl mx-auto px-6 my-auto py-4 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-6 flex flex-col items-center">
+                    <div class="p-3 rounded-2xl bg-white/5 border border-roseAccent/40 shadow-2xl relative">
+                        <div id="puzzle-grid-0" class="grid grid-cols-3 grid-rows-3 gap-1.5" style="width: 288px; height: 288px;"></div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-6 flex flex-col items-start text-left space-y-4">
+                    <h2 class="font-hand text-4xl sm:text-5xl text-white">
+                        Собери пазл
+                    </h2>
+                    <p class="text-white/70 text-sm sm:text-base font-light leading-relaxed max-w-md">
+                        Нажимай на фрагменты пазлов, сначала выбираешь 1, потом нажимаешь на 2 куда хочешь переместить
+                    </p>
+
+                    <div id="puzzle-win-banner-0" class="hidden w-full max-w-md p-3.5 rounded-2xl bg-roseAccent/20 border border-roseAccent text-roseSoft text-xs sm:text-sm flex items-center justify-between">
+                        <span>🎉 Пазл собран!</span>
+                        <span class="text-lg">🤍</span>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goToScreen(10)" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <button id="puzzle-next-btn-0" onclick="goToScreen('11b')" class="coral-btn btn-disabled px-7 py-3 rounded-full text-xs sm:text-sm">
+                    Перейти далее →
+                </button>
+            </footer>
+        </section>
+
+        <section id="screen-11b" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <main class="w-full max-w-5xl mx-auto px-6 my-auto py-4 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-6 flex flex-col items-center">
+                    <div class="p-3 rounded-2xl bg-white/5 border border-roseAccent/40 shadow-2xl relative">
+                        <div id="puzzle-grid-1" class="grid grid-cols-3 grid-rows-3 gap-1.5" style="width: 288px; height: 288px;"></div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-6 flex flex-col items-start text-left space-y-4">
+                    <h2 class="font-hand text-4xl sm:text-5xl text-white">
+                        Собери пазл
+                    </h2>
+                    <p class="text-white/70 text-sm sm:text-base font-light leading-relaxed max-w-md">
+                        Нажимай на фрагменты пазлов, сначала выбираешь 1, потом нажимаешь на 2 куда хочешь переместить
+                    </p>
+
+                    <div id="puzzle-win-banner-1" class="hidden w-full max-w-md p-3.5 rounded-2xl bg-roseAccent/20 border border-roseAccent text-roseSoft text-xs sm:text-sm flex items-center justify-between">
+                        <span>🎉 Пазл собран!</span>
+                        <span class="text-lg">🤍</span>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goToScreen(11)" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <button id="puzzle-next-btn-1" onclick="goToScreen('11c')" class="coral-btn btn-disabled px-7 py-3 rounded-full text-xs sm:text-sm">
+                    Перейти далее →
+                </button>
+            </footer>
+        </section>
+
+        <section id="screen-11c" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <main class="w-full max-w-5xl mx-auto px-6 my-auto py-4 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-6 flex flex-col items-center">
+                    <div class="p-3 rounded-2xl bg-white/5 border border-roseAccent/40 shadow-2xl relative">
+                        <div id="puzzle-grid-2" class="grid grid-cols-3 grid-rows-3 gap-1.5" style="width: 288px; height: 288px;"></div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-6 flex flex-col items-start text-left space-y-4">
+                    <h2 class="font-hand text-4xl sm:text-5xl text-white">
+                        Собери пазл
+                    </h2>
+                    <p class="text-white/70 text-sm sm:text-base font-light leading-relaxed max-w-md">
+                        Нажимай на фрагменты пазлов, сначала выбираешь 1, потом нажимаешь на 2 куда хочешь переместить
+                    </p>
+
+                    <div id="puzzle-win-banner-2" class="hidden w-full max-w-md p-3.5 rounded-2xl bg-roseAccent/20 border border-roseAccent text-roseSoft text-xs sm:text-sm flex items-center justify-between">
+                        <span>🎉 Все пазлы собраны!</span>
+                        <span class="text-lg">🤍</span>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goToScreen('11b')" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <button id="puzzle-next-btn-2" onclick="goToScreen(12)" class="coral-btn btn-disabled px-7 py-3 rounded-full text-xs sm:text-sm">
+                    Перейти далее →
+                </button>
+            </footer>
+        </section>
+
+        <section id="screen-12" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <main class="w-full max-w-5xl mx-auto px-6 my-auto py-4 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <div class="md:col-span-7 flex flex-col items-center">
+                    <div class="relative w-full max-w-md h-72 sm:h-80 rounded-3xl overflow-hidden border border-roseAccent/40 bg-gradient-to-b from-[#090512] via-[#160d29] to-[#21102d] shadow-[0_20px_50px_rgba(0,0,0,0.85)]">
+                        <canvas id="constellationCanvas" class="w-full h-full cursor-pointer"></canvas>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 flex flex-col items-start text-left space-y-4">
+                    <h2 class="font-hand text-4xl sm:text-5xl text-white">
+                        Созвездие мечт
+                    </h2>
+                    <p class="text-white/65 text-xs sm:text-sm font-light leading-relaxed">
+                        Нажимай на мерцающие звёзды чтобы соединить их в созвездие сердца, и открыть 8 наших планов :).
+                    </p>
+
+                    <div class="rose-glass-card w-full p-5 rounded-2xl border border-roseAccent/40 min-h-[96px] flex items-center">
+                        <p id="star-dream-text" class="font-hand text-2xl sm:text-3xl text-roseSoft leading-snug">
+                            Начни со Звезды ✨1 и зажигай их по порядку ☆
+                        </p>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goToScreen('11c')" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <button id="stars-next-btn" onclick="goToScreen(13)" class="coral-btn btn-disabled px-7 py-3 rounded-full text-xs sm:text-sm">
+                    Перейти далее →
+                </button>
+            </footer>
+        </section>
+
+        <section id="screen-13" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <main class="w-full max-w-5xl mx-auto px-6 my-auto py-4 text-center">
+                <h2 class="font-hand text-4xl sm:text-5xl text-white mb-7 tracking-wide">
+                    Наши достижения
+                </h2>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5 max-w-4xl mx-auto">
+                    <div class="achievement-card p-5 min-h-[164px] flex flex-col justify-center items-center gap-3.5 text-center">
+                        <span class="absolute top-3 right-3.5 text-[10px] font-mono text-roseAccent/45">01</span>
+                        <div class="ach-icon-ring">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                                <path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4L12 2Z"/>
+                            </svg>
+                        </div>
+                        <div class="text-xs sm:text-sm text-white/95 font-medium leading-snug px-1">
+                            Первая наша встреча
+                        </div>
+                    </div>
+
+                    <div class="achievement-card p-5 min-h-[164px] flex flex-col justify-center items-center gap-3.5 text-center">
+                        <span class="absolute top-3 right-3.5 text-[10px] font-mono text-roseAccent/45">02</span>
+                        <div class="ach-icon-ring">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                                <circle cx="12" cy="13" r="4"/>
+                            </svg>
+                        </div>
+                        <div class="text-xs sm:text-sm text-white/95 font-medium leading-snug px-1">
+                            Первая общая фото
+                        </div>
+                    </div>
+
+                    <div class="achievement-card p-5 min-h-[164px] flex flex-col justify-center items-center gap-3.5 text-center">
+                        <span class="absolute top-3 right-3.5 text-[10px] font-mono text-roseAccent/45">03</span>
+                        <div class="ach-icon-ring">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                            </svg>
+                        </div>
+                        <div class="text-xs sm:text-sm text-white/95 font-medium leading-snug px-1">
+                            Первая ночевка
+                        </div>
+                    </div>
+
+                    <div class="achievement-card p-5 min-h-[164px] flex flex-col justify-center items-center gap-3.5 text-center">
+                        <span class="absolute top-3 right-3.5 text-[10px] font-mono text-roseAccent/45">04</span>
+                        <div class="ach-icon-ring">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                                <rect x="2" y="4" width="20" height="16" rx="3"/>
+                                <polygon points="10 9 15 12 10 15 10 9" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="text-xs sm:text-sm text-white/95 font-medium leading-snug px-1">
+                            Первый просмотр видео у тебя дома
+                        </div>
+                    </div>
+
+                    <div class="achievement-card p-5 min-h-[164px] flex flex-col justify-center items-center gap-3.5 text-center">
+                        <span class="absolute top-3 right-3.5 text-[10px] font-mono text-roseAccent/45">05</span>
+                        <div class="ach-icon-ring">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="text-xs sm:text-sm text-white/95 font-medium leading-snug px-1">
+                            Общие черты характера
+                        </div>
+                    </div>
+
+                    <div class="achievement-card p-5 min-h-[164px] flex flex-col justify-center items-center gap-3.5 text-center">
+                        <span class="absolute top-3 right-3.5 text-[10px] font-mono text-roseAccent/45">06</span>
+                        <div class="ach-icon-ring">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                                <text x="12" y="18" text-anchor="middle" fill="currentColor" stroke="none" font-size="7" font-weight="700">100</text>
+                            </svg>
+                        </div>
+                        <div class="text-xs sm:text-sm text-white/95 font-medium leading-snug px-1">
+                            100 дней вместе
+                        </div>
+                    </div>
+
+                    <div class="achievement-card p-5 min-h-[164px] flex flex-col justify-center items-center gap-3.5 text-center">
+                        <span class="absolute top-3 right-3.5 text-[10px] font-mono text-roseAccent/45">07</span>
+                        <div class="ach-icon-ring">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                                <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+                            </svg>
+                        </div>
+                        <div class="text-xs sm:text-sm text-white/95 font-medium leading-snug px-1">
+                            Совместная поездка
+                        </div>
+                    </div>
+
+                    <div class="achievement-card p-5 min-h-[164px] flex flex-col justify-center items-center gap-3.5 text-center border-roseAccent/75">
+                        <span class="absolute top-3 right-3.5 text-[10px] font-mono text-roseAccent">08</span>
+                        <div class="ach-icon-ring !border-roseAccent !bg-roseAccent/25">
+                            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <div class="text-xs sm:text-sm text-white font-semibold leading-snug px-1">
+                            Первая годовщина
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goToScreen(12)" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <button onclick="goToScreen(14)" class="coral-btn px-7 py-3 rounded-full text-xs sm:text-sm">
+                    Перейти далее →
+                </button>
+            </footer>
+        </section>
+
+        <section id="screen-14" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-2 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <audio id="song-audio" src="music.mp3" preload="metadata" playsinline></audio>
+
+            <main class="w-full max-w-6xl mx-auto px-6 sm:px-10 my-auto py-2 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+                <div class="md:col-span-7 flex flex-col justify-end md:min-h-[410px]">
+                    <div id="song-lyrics-viewport" class="h-60 sm:h-68 overflow-hidden relative select-none mb-2 translate-y-2 sm:translate-y-3">
+                        <div id="song-lyrics-box" class="space-y-2 text-left font-hand text-2xl sm:text-4xl text-white/85 transition-transform duration-500 ease-out will-change-transform">
+                        </div>
+                    </div>
+
+                    <div class="w-full pt-4 translate-y-2 sm:translate-y-4 space-y-3">
+                        <div class="w-full flex items-center gap-3">
+                            <span id="music-cur-time" class="text-xs font-mono text-white/75 w-10 text-right">0:00</span>
+                            <input id="music-seek-slider" type="range" min="0" max="166" step="0.1" value="0"
+                                   oninput="seekSongTo(this.value)"
+                                   class="romantic-slider flex-1" />
+                            <span id="music-dur-time" class="text-xs font-mono text-white/75 w-10 text-left">2:46</span>
+                        </div>
+
+                        <div class="w-full flex items-center justify-between gap-4">
+                            <button id="music-play-btn" onclick="toggleSongPlay()" class="coral-btn px-7 py-2.5 rounded-full text-xs sm:text-sm flex items-center gap-2.5">
+                                <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+                                    <polygon points="6 4 20 12 6 20 6 4"/>
+                                </svg>
+                                <span>Включить</span>
+                            </button>
+
+                            <div class="flex items-center gap-2.5 bg-white/5 border border-white/15 rounded-full px-3.5 py-2">
+                                <button id="music-mute-btn" onclick="toggleSongMute()" class="text-white/85 hover:text-roseAccent flex items-center justify-center w-5 h-5" aria-label="Звук">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                                    </svg>
+                                </button>
+                                <input id="music-vol-slider" type="range" min="0" max="1" step="0.01" value="0.85"
+                                       oninput="changeSongVolume(this.value)"
+                                       onchange="changeSongVolume(this.value)"
+                                       class="romantic-slider w-20 sm:w-28" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 flex flex-col items-center">
+                    <h2 class="font-hand text-4xl sm:text-5xl text-white mb-4 tracking-wide">
+                        Украсть тебя
+                    </h2>
+                    <div class="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden border-2 border-roseAccent/50 shadow-[0_20px_50px_rgba(0,0,0,0.85)] bg-[#16111d]">
+                        <img src="img/музыка.jpg" alt="Украсть тебя" class="w-full h-full object-cover" onerror="applyFallbackSvg(this, 'img/музыка.jpg')"/>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goToScreen(13)" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <button onclick="goToScreen(15)" class="coral-btn px-7 py-3 rounded-full text-xs sm:text-sm">
+                    Перейти далее →
+                </button>
+            </footer>
+        </section>
+
+        <section id="screen-15" class="quest-screen">
+            <header class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-6 pb-1 flex items-center justify-between">
+                <div class="font-hand text-2xl sm:text-3xl text-white/95 leading-tight"><span>One Year </span><span class="whitespace-nowrap">Together<span class="logo-heart-tilted">♡</span></span></div>
+            </header>
+
+            <img id="hidden-avatar-preload" src="img/аватарка.jpg" alt="" class="hidden" onerror="this.dataset.failed='1'" />
+
+            <main class="w-full max-w-4xl mx-auto px-5 my-auto py-1 text-center flex flex-col items-center">
+                <h2 class="font-hand text-4xl sm:text-5xl text-white leading-tight mb-1.5">
+                    С первой годовщиной, любимая 🤍
+                </h2>
+
+                <p class="text-white/80 text-xs sm:text-sm font-light leading-relaxed max-w-xl mb-4">
+                    Спасибо тебе за этот пройденный вместе год. За каждый разговор, за каждые сообщения, за каждый звонок и за все то что было у нас. Я тебя очень сильно люблю 🤍
+                </p>
+
+                <div class="kraft-card max-w-2xl w-full p-5 sm:px-8 sm:py-5 rounded-xl text-left mb-5 relative transform -rotate-1">
+                    <div class="masking-tape -top-3 left-1/2 -translate-x-1/2"></div>
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="text-xs uppercase tracking-widest text-[#5a3e2b] font-semibold">ЛИЧНОЕ ПИСЬМО</span>
+                        <div class="wax-seal !w-9 !h-9 !text-base">1♥</div>
+                    </div>
+                    <p class="font-hand text-xl sm:text-2xl text-[#2a1b12] leading-snug">
+                        «Помимо текста в песне, которую я посвятил тебе, я хотел бы сказать, спасибо тебе за весь этот пройденный год, я правда ценю каждый момент с тобой. По каким-то моментам я могу скучать, что-то может вспоминаться, но каждый день у нас происходит что-то новое, и с каждым днем все лучше и лучше. Я люблю все наши звонки, все наши переписки, все моменты которые связаны с тобой, люблю твои глаза, люблю твой носик, люблю твое личико, люблю все в тебе... Люблю тебя❤️. Поздравляю с первой нашей годовщиной! Хочу и дальше отмечать такие события с тобой, например 10 летие, или же 50 летие :)»
+                    </p>
+                </div>
+
+                <div class="flex items-center justify-center gap-5">
+                    <button onclick="saveGirlfriendResultsFile()"
+                            title="Скачать файл с ответами"
+                            aria-label="Скачать файл с ответами"
+                            class="final-action-btn w-14 h-14 rounded-full coral-btn flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition">
+                        <svg class="w-6 h-6 text-[#1a0e12]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <path d="M12 18v-6"/>
+                            <polyline points="9 15 12 18 15 15"/>
+                        </svg>
+                    </button>
+
+                    <button onclick="downloadKeepsakeCard()"
+                            title="Скачать открытку"
+                            aria-label="Скачать открытку"
+                            class="final-action-btn w-14 h-14 rounded-full outline-rose-btn flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition">
+                        <svg class="w-6 h-6 text-roseAccent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="3" ry="3"/>
+                            <path d="M12 8v8"/>
+                            <polyline points="8.5 12.5 12 16 15.5 12.5"/>
+                        </svg>
+                    </button>
+
+                    <button onclick="shareQuestFilesNative()"
+                            title="Переслать файлы"
+                            aria-label="Переслать файлы"
+                            class="final-action-btn w-14 h-14 rounded-full outline-rose-btn flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition">
+                        <svg class="w-6 h-6 text-roseAccent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"/>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                    </button>
+                </div>
+            </main>
+
+            <footer class="w-full max-w-6xl mx-auto px-6 sm:px-10 pb-4 flex items-center justify-between">
+                <button onclick="goToScreen(14)" class="text-xs sm:text-sm text-white/50 hover:text-white transition flex items-center gap-2">
+                    <span>← Перейти назад</span>
+                </button>
+                <div class="font-hand text-2xl text-white/80">Максимка</div>
+            </footer>
+        </section>
+
+    </div>
+
+    <script>
+        const SAVED_ANSWERS_IN_CODE = null;
+
+        let isReviewMode = false;
+
+        const userAnswers = {
+            q1: { selectedIndex: null, selectedText: "Не выбрано" },
+            q2: { selectedIndex: null, selectedText: "Не выбрано" },
+            q3: { selectedIndex: null, selectedText: "Не выбрано" },
+            q4: ""
+        };
+
+        const QUIZ_STRUCTURE = {
+            q1: {
+                question: "Вопрос 1: Какой был день нашего знакомства?",
+                options: ["A) 20.11.2025", "B) 20.10.2025", "C) 22.10.2025", "D) 21.10.2025"],
+                correctIndex: 1
+            },
+            q2: {
+                question: "Вопрос 2: В какой день мы начали отношения и сколько прошло с того момента?",
+                options: [
+                    "A) 10.11.2025 / 363 дня",
+                    "B) 08.11.2025 / 365 дней",
+                    "C) 10.11.2025 / 365 дней",
+                    "D) 11.11.2025 / 366 дней"
+                ],
+                correctIndex: 2
+            },
+            q3: {
+                question: "Вопрос 3: В какой день я впервые приехал к тебе домой на ночевку?",
+                options: ["A) 4 декабря", "B) 5 декабря", "C) 6 декабря", "D) 7 декабря"],
+                correctIndex: 1
+            }
+        };
+
+        let currentScreen = 1;
+
+        function goToScreen(screenNum) {
+            if (currentScreen === 14 && screenNum !== 14) {
+                const audio = document.getElementById('song-audio');
+                if (audio && !audio.paused) {
+                    toggleSongPlay();
+                }
+            }
+            document.querySelectorAll('.quest-screen').forEach(sec => sec.classList.remove('active'));
+            const target = document.getElementById(`screen-${screenNum}`);
+            if (target) {
+                target.classList.add('active');
+                currentScreen = screenNum;
+            }
+        }
+
+        function submitQuestionStep(qKey, answerScreenNum, nextQuestionScreenNum) {
+            if (isReviewMode) {
+                goToScreen(nextQuestionScreenNum);
+                return;
+            }
+
+            const chosenIdx = userAnswers[qKey].selectedIndex;
+            const correctIdx = QUIZ_STRUCTURE[qKey].correctIndex;
+            const badge = document.getElementById(`${qKey}-feedback-badge`);
+
+            if (chosenIdx !== correctIdx) {
+                triggerRedFlashOnce();
+                if (badge) {
+                    badge.className = "inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-red-500/25 border border-red-400 text-red-200 shadow-[0_0_20px_rgba(239,68,68,0.45)]";
+                    badge.textContent = `💔 Ошибочка :)`;
+                    badge.classList.remove('hidden');
+                }
+            } else {
+                if (badge) {
+                    badge.className = "inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-roseAccent/20 border border-roseAccent text-roseSoft shadow-[0_0_18px_rgba(244,151,156,0.35)]";
+                    badge.textContent = "✨ Ответ правильный!";
+                    badge.classList.remove('hidden');
+                }
+            }
+
+            goToScreen(answerScreenNum);
+        }
+
+        function goBackFromQuestion(questionNum) {
+            if (isReviewMode) {
+                if (questionNum === 2) goToScreen(2);
+                else if (questionNum === 3) goToScreen(4);
+                else if (questionNum === 4) goToScreen(6);
+            } else {
+                if (questionNum === 2) goToScreen(3);
+                else if (questionNum === 3) goToScreen(5);
+                else if (questionNum === 4) goToScreen(7);
+            }
+        }
+
+        function triggerRedFlashOnce() {
+            const overlay = document.getElementById('red-flash-overlay');
+            if (!overlay) return;
+            overlay.classList.remove('red-flash-active');
+            void overlay.offsetWidth;
+            overlay.classList.add('red-flash-active');
+        }
+
+        const RELATIONSHIP_START = new Date('2025-11-10T00:00:00');
+
+        function updateLiveTimer() {
+            const now = new Date();
+            const diffMs = Math.max(0, now - RELATIONSHIP_START);
+            const totalSeconds = Math.floor(diffMs / 1000);
+            const days = Math.floor(totalSeconds / (3600 * 24));
+            const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+            const mins = Math.floor((totalSeconds % 3600) / 60);
+            const secs = totalSeconds % 60;
+
+            document.getElementById('timer-days').textContent = days;
+            document.getElementById('timer-hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('timer-mins').textContent = String(mins).padStart(2, '0');
+            document.getElementById('timer-secs').textContent = String(secs).padStart(2, '0');
+        }
+
+        function selectQuizOption(questionKey, optionIdx, optionText, btnEl) {
+            userAnswers[questionKey] = {
+                selectedIndex: optionIdx,
+                selectedText: optionText
+            };
+            const container = document.getElementById(`${questionKey}-options`);
+            if (container) {
+                container.querySelectorAll('.option-pill').forEach(b => b.classList.remove('selected'));
+            }
+            btnEl.classList.add('selected');
+
+            const nextBtn = document.getElementById(`${questionKey}-next-btn`);
+            if (nextBtn) {
+                nextBtn.classList.remove('btn-disabled');
+            }
+        }
+
+        function saveQ4Text(val) {
+            if (isReviewMode) return;
+            userAnswers.q4 = val;
+            const nextBtn = document.getElementById('q4-next-btn');
+            if (nextBtn) {
+                if (val.trim().length > 0) {
+                    nextBtn.classList.remove('btn-disabled');
+                } else {
+                    nextBtn.classList.add('btn-disabled');
+                }
+            }
+        }
+
+        function handleQ4NextOrFinish() {
+            if (isReviewMode) {
+                finishReviewMode();
+            } else {
+                goToScreen(9);
+            }
+        }
+
+        function finishReviewMode() {
+            isReviewMode = false;
+            userAnswers.q1 = { selectedIndex: null, selectedText: "Не выбрано" };
+            userAnswers.q2 = { selectedIndex: null, selectedText: "Не выбрано" };
+            userAnswers.q3 = { selectedIndex: null, selectedText: "Не выбрано" };
+            userAnswers.q4 = "";
+
+            ['q1', 'q2', 'q3'].forEach(qKey => {
+                const container = document.getElementById(`${qKey}-options`);
+                if (container) {
+                    container.querySelectorAll('.option-pill').forEach(btn => {
+                        btn.classList.remove('selected', 'review-green', 'review-red');
+                    });
+                }
+                const nextBtn = document.getElementById(`${qKey}-next-btn`);
+                if (nextBtn) nextBtn.classList.add('btn-disabled');
+            });
+
+            const q4Area = document.getElementById('q4-textarea');
+            if (q4Area) {
+                q4Area.value = '';
+                q4Area.readOnly = false;
+            }
+
+            const q4NextBtn = document.getElementById('q4-next-btn');
+            if (q4NextBtn) {
+                q4NextBtn.textContent = 'Перейти дальше →';
+                q4NextBtn.classList.add('btn-disabled');
+            }
+
+            const fileInput = document.getElementById('loadAnswersFileInput');
+            if (fileInput) fileInput.value = '';
+
+            goToScreen(1);
+        }
+
+        const LOVE_NOTES = [
+            {
+                title: "Твоя улыбка",
+                text: "Я люблю твою улыбку. Она греет меня даже в самый холодный день."
+            },
+            {
+                title: "Твоя доброта",
+                text: "Я люблю твою доброту. Как бы это не звучало с сарказмом(так и есть)."
+            },
+            {
+                title: "Твой смех",
+                text: "Я люблю твой смех. Мне нравится как ты ржешь как конь."
+            },
+            {
+                title: "Твоя милость",
+                text: "Я люблю твою милость. Мне нравится когда ты ведешь себя мило - как маленький ребёнок."
+            },
+            {
+                title: "Ты просто ты",
+                text: "Я люблю тебя за то что это ты. Ты единственная, неповторимая и самая лучшая."
+            }
+        ];
+        let loveNoteQueue = [0, 1, 2, 3, 4];
+        let loveNoteQueuePos = 0;
+
+        function openLoveNoteScreen(startIdx) {
+            loveNoteQueue = [];
+            for (let i = startIdx; i >= 0; i--) {
+                loveNoteQueue.push(i);
+            }
+            for (let i = startIdx + 1; i < LOVE_NOTES.length; i++) {
+                loveNoteQueue.push(i);
+            }
+            loveNoteQueuePos = 0;
+            renderCurrentLoveNote();
+            goToScreen(10);
+        }
+
+        function renderCurrentLoveNote() {
+            const noteIdx = loveNoteQueue[loveNoteQueuePos];
+            const note = LOVE_NOTES[noteIdx];
+            document.getElementById('love-note-title').textContent = note.title;
+            document.getElementById('love-reason-text').textContent = note.text;
+
+            const photoCard = document.getElementById('note-polaroid-card');
+            if (photoCard) {
+                photoCard.classList.remove('note-photo-dropped');
+                void photoCard.offsetWidth;
+                photoCard.classList.add('note-photo-dropped');
+            }
+
+            const nextBtn = document.getElementById('next-love-note-btn');
+            if (nextBtn) {
+                nextBtn.textContent = "Перейти далее →";
+            }
+        }
+
+        function nextLoveNoteStep() {
+            if (loveNoteQueuePos < loveNoteQueue.length - 1) {
+                loveNoteQueuePos++;
+                renderCurrentLoveNote();
+            } else {
+                goToScreen(11);
+            }
+        }
+
+        function prevLoveNoteStep() {
+            if (loveNoteQueuePos > 0) {
+                loveNoteQueuePos--;
+                renderCurrentLoveNote();
+            } else {
+                goToScreen(9);
+            }
+        }
+
+        const puzzlesState = [
+            { id: 0, paths: ["img/пазл.jpg"], resolvedSrc: "img/пазл.jpg", order: [0,1,2,3,4,5,6,7,8], selected: null },
+            { id: 1, paths: ["img/пазл2.jpg"], resolvedSrc: "img/пазл2.jpg", order: [0,1,2,3,4,5,6,7,8], selected: null },
+            { id: 2, paths: ["img/пазл3.img", "img/пазл3.jpg"], resolvedSrc: "img/пазл3.img", order: [0,1,2,3,4,5,6,7,8], selected: null }
+        ];
+
+        function initPuzzle() {
+            puzzlesState.forEach((pz, pIdx) => {
+                resolvePuzzleImage(pz, 0, () => {
+                    shuffleSinglePuzzle(pIdx);
+                });
+            });
+        }
+
+        function resolvePuzzleImage(pz, pathIdx, callback) {
+            if (pathIdx >= pz.paths.length) {
+                const dummy = document.createElement('img');
+                applyFallbackSvg(dummy, pz.paths[0]);
+                pz.resolvedSrc = dummy.src;
+                callback();
+                return;
+            }
+            const candidate = pz.paths[pathIdx];
+            const testImg = new Image();
+            testImg.onload = () => {
+                pz.resolvedSrc = candidate;
+                callback();
+            };
+            testImg.onerror = () => {
+                resolvePuzzleImage(pz, pathIdx + 1, callback);
+            };
+            testImg.src = candidate;
+        }
+
+        function shuffleSinglePuzzle(pIdx) {
+            const pz = puzzlesState[pIdx];
+            pz.order = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            for (let i = 0; i < 4; i++) {
+                const a = Math.floor(Math.random() * 9);
+                const b = Math.floor(Math.random() * 9);
+                const tmp = pz.order[a];
+                pz.order[a] = pz.order[b];
+                pz.order[b] = tmp;
+            }
+            if (pz.order.every((v, i) => v === i)) {
+                const t = pz.order[0];
+                pz.order[0] = pz.order[1];
+                pz.order[1] = t;
+            }
+            pz.selected = null;
+            renderSinglePuzzleBoard(pIdx);
+        }
+
+        function renderSinglePuzzleBoard(pIdx) {
+            const pz = puzzlesState[pIdx];
+            const grid = document.getElementById(`puzzle-grid-${pIdx}`);
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            pz.order.forEach((pieceId, posIdx) => {
+                const row = Math.floor(pieceId / 3);
+                const col = pieceId % 3;
+                const tile = document.createElement('div');
+                tile.className = `puzzle-tile rounded-lg border border-white/25 ${pz.selected === posIdx ? 'selected-tile' : ''}`;
+                tile.style.backgroundImage = `url("${pz.resolvedSrc}")`;
+                tile.style.backgroundPosition = `${col * 50}% ${row * 50}%`;
+                tile.onclick = () => onPuzzleTileClick(pIdx, posIdx);
+                grid.appendChild(tile);
+            });
+        }
+
+        function onPuzzleTileClick(pIdx, posIdx) {
+            const pz = puzzlesState[pIdx];
+            if (pz.selected === null) {
+                pz.selected = posIdx;
+                renderSinglePuzzleBoard(pIdx);
+            } else if (pz.selected === posIdx) {
+                pz.selected = null;
+                renderSinglePuzzleBoard(pIdx);
+            } else {
+                const temp = pz.order[pz.selected];
+                pz.order[pz.selected] = pz.order[posIdx];
+                pz.order[posIdx] = temp;
+                pz.selected = null;
+                renderSinglePuzzleBoard(pIdx);
+
+                if (pz.order.every((val, idx) => val === idx)) {
+                    const banner = document.getElementById(`puzzle-win-banner-${pIdx}`);
+                    if (banner) banner.classList.remove('hidden');
+                    const nextBtn = document.getElementById(`puzzle-next-btn-${pIdx}`);
+                    if (nextBtn) nextBtn.classList.remove('btn-disabled');
+                }
+            }
+        }
+
+        const constellationStars = [
+            { x: 0.50, y: 0.29, lit: false, dream: "✨Звезда 1: Уехать вдвоем в путешествие заграницу." },
+            { x: 0.27, y: 0.16, lit: false, dream: "✨Звезда 2: Встретить рассвет на берегу моря, океана и тому подобного." },
+            { x: 0.13, y: 0.40, lit: false, dream: "✨Звезда 3: Переехать в общую красивую квартиру, и жить вместе." },
+            { x: 0.26, y: 0.67, lit: false, dream: "✨Звезда 4: Всю ночь смотреть фильм, а утром проснуться на работу :)." },
+            { x: 0.50, y: 0.86, lit: false, dream: "✨Звезда 5: Сделать фотографии в очень красивых местах мира." },
+            { x: 0.74, y: 0.67, lit: false, dream: "✨Звезда 6: Сделать предложение, на которое ты скажешь ДА." },
+            { x: 0.87, y: 0.40, lit: false, dream: "✨Звезда 7: Любить с каждым днем друг друга все сильнее и сильнее." },
+            { x: 0.73, y: 0.16, lit: false, dream: "✨Звезда 8: Прожить вместе всю нашу оставшуюся жизнь" }
+        ];
+        let nextStarToLight = 0;
+
+        function initConstellationCanvas() {
+            const canvas = document.getElementById('constellationCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            function resize() {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                canvas.width = rect.width || 440;
+                canvas.height = rect.height || 310;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            const bgDust = Array.from({ length: 42 }, () => ({
+                x: Math.random(),
+                y: Math.random(),
+                r: Math.random() * 1.3 + 0.3,
+                phase: Math.random() * Math.PI * 2
+            }));
+
+            canvas.addEventListener('click', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const cx = (e.clientX - rect.left) / canvas.width;
+                const cy = (e.clientY - rect.top) / canvas.height;
+
+                let clickedIdx = null;
+                let minDist = 0.12;
+                for (let i = 0; i < constellationStars.length; i++) {
+                    const s = constellationStars[i];
+                    const d = Math.hypot(s.x - cx, s.y - cy);
+                    if (d < minDist) {
+                        minDist = d;
+                        clickedIdx = i;
+                    }
+                }
+
+                if (clickedIdx === null) return;
+
+                if (clickedIdx === nextStarToLight) {
+                    constellationStars[clickedIdx].lit = true;
+                    document.getElementById('star-dream-text').textContent = constellationStars[clickedIdx].dream;
+                    nextStarToLight++;
+
+                    if (nextStarToLight === constellationStars.length) {
+                        const nextBtn = document.getElementById('stars-next-btn');
+                        if (nextBtn) nextBtn.classList.remove('btn-disabled');
+                    }
+                } else if (clickedIdx < nextStarToLight) {
+                    document.getElementById('star-dream-text').textContent = constellationStars[clickedIdx].dream;
+                } else {
+                    document.getElementById('star-dream-text').textContent = `Сначала зажги Звезду ✨ ${nextStarToLight + 1}`;
+                }
+            });
+
+            function drawStarFlare(x, y, radius, isLit) {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, Math.PI * 2);
+                ctx.fillStyle = isLit ? '#fff0f3' : 'rgba(255, 255, 255, 0.55)';
+                ctx.shadowColor = isLit ? '#ff758f' : '#f4979c';
+                ctx.shadowBlur = isLit ? 22 : 6;
+                ctx.fill();
+
+                if (isLit) {
+                    ctx.strokeStyle = 'rgba(255, 210, 220, 0.85)';
+                    ctx.lineWidth = 1.4;
+                    const spike = radius * 2.3;
+                    ctx.beginPath();
+                    ctx.moveTo(x - spike, y);
+                    ctx.lineTo(x + spike, y);
+                    ctx.moveTo(x, y - spike);
+                    ctx.lineTo(x, y + spike);
+                    ctx.stroke();
+                }
+                ctx.restore();
+            }
+
+            function draw() {
+                const w = canvas.width;
+                const h = canvas.height;
+                ctx.clearRect(0, 0, w, h);
+
+                const neb = ctx.createRadialGradient(w * 0.5, h * 0.48, 10, w * 0.5, h * 0.48, w * 0.44);
+                neb.addColorStop(0, 'rgba(244, 151, 156, 0.16)');
+                neb.addColorStop(0.55, 'rgba(168, 85, 247, 0.07)');
+                neb.addColorStop(1, 'transparent');
+                ctx.fillStyle = neb;
+                ctx.fillRect(0, 0, w, h);
+
+                bgDust.forEach(d => {
+                    const alpha = 0.2 + 0.35 * Math.sin(Date.now() * 0.002 + d.phase);
+                    ctx.fillStyle = `rgba(255, 240, 245, ${alpha})`;
+                    ctx.beginPath();
+                    ctx.arc(d.x * w, d.y * h, d.r, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+
+                const order = [0, 1, 2, 3, 4, 5, 6, 7, 0];
+                ctx.save();
+                ctx.beginPath();
+                ctx.setLineDash([4, 6]);
+                ctx.strokeStyle = 'rgba(244, 151, 156, 0.2)';
+                ctx.lineWidth = 1.2;
+                for (let i = 0; i < order.length - 1; i++) {
+                    const s1 = constellationStars[order[i]];
+                    const s2 = constellationStars[order[i + 1]];
+                    ctx.moveTo(s1.x * w, s1.y * h);
+                    ctx.lineTo(s2.x * w, s2.y * h);
+                }
+                ctx.stroke();
+                ctx.restore();
+
+                ctx.save();
+                ctx.beginPath();
+                ctx.strokeStyle = '#f4979c';
+                ctx.shadowColor = '#ff758f';
+                ctx.shadowBlur = 14;
+                ctx.lineWidth = 2.6;
+                for (let i = 0; i < order.length - 1; i++) {
+                    const s1 = constellationStars[order[i]];
+                    const s2 = constellationStars[order[i + 1]];
+                    if (s1.lit && s2.lit) {
+                        ctx.moveTo(s1.x * w, s1.y * h);
+                        ctx.lineTo(s2.x * w, s2.y * h);
+                    }
+                }
+                ctx.stroke();
+                ctx.restore();
+
+                for (let i = 0; i < constellationStars.length; i++) {
+                    const s = constellationStars[i];
+                    const x = s.x * w;
+                    const y = s.y * h;
+                    const pulse = Math.sin(Date.now() * 0.004 + i) * 1.2;
+                    const isTarget = (i === nextStarToLight);
+
+                    drawStarFlare(x, y, (s.lit ? 6.5 : 4.8) + pulse * 0.35, s.lit);
+
+                    ctx.fillStyle = s.lit ? '#ffdce0' : (isTarget ? '#f4979c' : 'rgba(255,255,255,0.65)');
+                    ctx.font = isTarget ? '600 12px Montserrat, sans-serif' : '500 11px Montserrat, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(`★ ${i + 1}`, x, y - 14);
+                }
+                requestAnimationFrame(draw);
+            }
+            draw();
+        }
+
+        let SONG_LYRICS = [
+            { time: 0,   text: "Чтобы стать счастливым, мне надо просто украсть тебя" },
+            { time: 4,   text: "Увезти и спрятать от края, где мы несчастливы" },
+            { time: 7.8,   text: "Не видеть больше лица, что скомканы из пластика" },
+            { time: 12,  text: "Чтобы стать счастливым, мне надо просто украсть тебя" },
+            { time: 16,  text: "Я хочу с тобой состариться в тесном уютном домике" },
+            { time: 20.1,  text: "Спать, пока мы не выспимся, жить, будто мы затворники" },
+            { time: 24.1,  text: "Пить, танцевать по вторникам утром прямо до полдника" },
+            { time: 28.3,  text: "Целоваться под звёздами с чувством, что мы свободные" },
+            { time: 32,  text: "Я хочу с тобой состариться в тесном уютном домике" },
+            { time: 36,  text: "Спать, пока мы не выспимся, жить, будто мы затворники" },
+            { time: 40,  text: "Пить, танцевать по вторникам утром прямо до полдника" },
+            { time: 44,  text: "Целоваться под звёздами с чувством, что мы свободные" },
+            { time: 48,  text: "..." },
+            { time: 51.5,  text: "Вокруг столько счастливых, щас, кажется, наша очередь" },
+            { time: 55.5,  text: "Давай сбросим тревожность у города на обочине" },
+            { time: 59.5,  text: "Поедем налегке, там оставим ещё заботы все" },
+            { time: 63.4,  text: "Нам нужно всё менять, а иначе мы пропадём во мгле" },
+            { time: 67.4,  text: "Притормозим у берега перекурить и выдохнуть" },
+            { time: 71.5,  text: "Камнем закинем прошлые новости и политику" },
+            { time: 75.4,  text: "Погоню за деньгами, комфортом и своим именем" },
+            { time: 79.3,  text: "Зачем нам быть хорошим для тех, кого ненавидим мы?" },
+            { time: 83.5,  text: "В мыслях много шума, который нас вёл неправильно" },
+            { time: 87.3,  text: "Мы потеряли голос, чтоб следовать по их графикам" },
+            { time: 91.4,  text: "Нас ослепила гордость идей с хорошей графикой" },
+            { time: 95.4,  text: "Я знаю, как спасти нас, доверься, так будет правильно..." },
+            { time: 101.5, text: "Чтобы стать счастливым, мне надо просто украсть тебя" },
+            { time: 105.4, text: "Увезти и спрятать от края, где мы несчастливы" },
+            { time: 109.4, text: "Не видеть больше лица, что скомканы из пластика" },
+            { time: 113.7, text: "Чтобы стать счастливым, мне надо просто украсть тебя!" },
+            { time: 117.8, text: "Я хочу с тобой состариться в тесном уютном домике" },
+            { time: 122, text: "Спать, пока мы не выспимся, жить, будто мы затворники" },
+            { time: 126, text: "Пить, танцевать по вторникам утром прямо до полдника" },
+            { time: 130.1, text: "Целоваться под звёздами с чувством, что мы свободные" },
+            { time: 133.7, text: "Я хочу с тобой состариться в тесном уютном домике" },
+            { time: 137.8, text: "Спать, пока мы не выспимся, жить, будто мы затворники" },
+            { time: 141.8, text: "Пить, танцевать по вторникам утром прямо до полдника" },
+            { time: 146, text: "Целоваться под звёздами с чувством, что мы свободные" },
+            { time: 149.6, text: "..." }
+        ];
+
+        const songAudio = document.getElementById('song-audio');
+        let webAudioCtx = null;
+        let webAudioGainNode = null;
+        let webAudioConnected = false;
+
+        function ensureWebAudioGain() {
+            if (webAudioConnected) return;
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!AudioCtx) return;
+                webAudioCtx = new AudioCtx();
+                const source = webAudioCtx.createMediaElementSource(songAudio);
+                webAudioGainNode = webAudioCtx.createGain();
+                const slider = document.getElementById('music-vol-slider');
+                webAudioGainNode.gain.value = songAudio.muted ? 0 : (slider ? parseFloat(slider.value) : 0.85);
+                source.connect(webAudioGainNode);
+                webAudioGainNode.connect(webAudioCtx.destination);
+                webAudioConnected = true;
+            } catch (e) {
+                webAudioConnected = false;
+            }
+        }
+
+        function setPlayButtonUI(isPlaying) {
+            const btn = document.getElementById('music-play-btn');
+            if (!btn) return;
+            if (isPlaying) {
+                btn.innerHTML = `
+                    <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+                        <rect x="6" y="4" width="4" height="16" rx="1"/>
+                        <rect x="14" y="4" width="4" height="16" rx="1"/>
+                    </svg>
+                    <span>Пауза</span>
+                `;
+            } else {
+                btn.innerHTML = `
+                    <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+                        <polygon points="6 4 20 12 6 20 6 4"/>
+                    </svg>
+                    <span>Включить</span>
+                `;
+            }
+        }
+
+        function setVolumeIconUI(vol, isMuted) {
+            const btn = document.getElementById('music-mute-btn');
+            if (!btn) return;
+            if (isMuted || vol <= 0.001) {
+                btn.innerHTML = `
+                    <svg class="w-4 h-4 text-roseAccent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                        <line x1="23" y1="9" x2="17" y2="15"/>
+                        <line x1="17" y1="9" x2="23" y2="15"/>
+                    </svg>
+                `;
+            } else if (vol < 0.5) {
+                btn.innerHTML = `
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                    </svg>
+                `;
+            } else {
+                btn.innerHTML = `
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                    </svg>
+                `;
+            }
+        }
+
+        function formatSecToMMSS(sec) {
+            const s = Math.max(0, Math.floor(sec || 0));
+            const m = Math.floor(s / 60);
+            const r = s % 60;
+            return `${m}:${String(r).padStart(2, '0')}`;
+        }
+
+        function renderSongLyrics() {
+            const box = document.getElementById('song-lyrics-box');
+            if (!box) return;
+            box.innerHTML = SONG_LYRICS.map((item, idx) => `
+                <div onclick="seekSongTo(${item.time})" id="song-line-${idx}" class="lyric-line ${idx === 0 ? 'active-lyric' : ''}">
+                    <span>${item.text}</span>
+                </div>
+            `).join('');
+        }
+
+        function toggleSongPlay() {
+            ensureWebAudioGain();
+            if (webAudioCtx && webAudioCtx.state === 'suspended') {
+                webAudioCtx.resume();
+            }
+            if (songAudio.paused) {
+                songAudio.play().then(() => {
+                    setPlayButtonUI(true);
+                }).catch(() => {
+                    setPlayButtonUI(false);
+                });
+            } else {
+                songAudio.pause();
+                setPlayButtonUI(false);
+            }
+        }
+
+        function seekSongTo(secVal) {
+            const s = parseFloat(secVal);
+            if (!isNaN(songAudio.duration)) {
+                songAudio.currentTime = s;
+            }
+            updateSongProgressUI(s);
+        }
+
+        let lastNonZeroVolume = 0.85;
+
+        function changeSongVolume(val) {
+            const v = Math.max(0, Math.min(1, parseFloat(val)));
+            if (v > 0) lastNonZeroVolume = v;
+
+            const slider = document.getElementById('music-vol-slider');
+            if (slider && parseFloat(slider.value) !== v) {
+                slider.value = v;
+            }
+
+            try {
+                songAudio.volume = v;
+            } catch (e) {}
+            songAudio.muted = (v === 0);
+
+            if (webAudioGainNode) {
+                webAudioGainNode.gain.value = v;
+            }
+            setVolumeIconUI(v, v === 0);
+        }
+
+        function toggleSongMute() {
+            const slider = document.getElementById('music-vol-slider');
+            const currentVal = slider ? parseFloat(slider.value) : songAudio.volume;
+            if (songAudio.muted || currentVal === 0) {
+                changeSongVolume(lastNonZeroVolume || 0.85);
+            } else {
+                changeSongVolume(0);
+            }
+        }
+
+        songAudio.addEventListener('volumechange', () => {
+            const slider = document.getElementById('music-vol-slider');
+            const effectiveVol = songAudio.muted ? 0 : songAudio.volume;
+            if (slider && !webAudioConnected) {
+                slider.value = effectiveVol;
+            }
+            setVolumeIconUI(effectiveVol, songAudio.muted);
+        });
+
+        songAudio.addEventListener('loadedmetadata', () => {
+            const dur = songAudio.duration || 166;
+            document.getElementById('music-seek-slider').max = dur;
+            document.getElementById('music-dur-time').textContent = formatSecToMMSS(dur);
+        });
+
+        songAudio.addEventListener('timeupdate', () => {
+            updateSongProgressUI(songAudio.currentTime);
+        });
+
+        songAudio.addEventListener('ended', () => {
+            setPlayButtonUI(false);
+        });
+
+        function updateSongProgressUI(curSec) {
+            document.getElementById('music-seek-slider').value = curSec;
+            document.getElementById('music-cur-time').textContent = formatSecToMMSS(curSec);
+
+            let activeIdx = 0;
+            for (let i = 0; i < SONG_LYRICS.length; i++) {
+                if (curSec >= SONG_LYRICS[i].time) {
+                    activeIdx = i;
+                } else {
+                    break;
+                }
+            }
+
+            const box = document.getElementById('song-lyrics-box');
+            const viewport = document.getElementById('song-lyrics-viewport');
+
+            SONG_LYRICS.forEach((_, idx) => {
+                const el = document.getElementById(`song-line-${idx}`);
+                if (!el) return;
+                if (idx === activeIdx) {
+                    el.classList.add('active-lyric');
+                    if (box && viewport) {
+                        const targetOffset = Math.max(0, el.offsetTop - (viewport.clientHeight / 2) + (el.clientHeight / 2));
+                        box.style.transform = `translateY(-${targetOffset}px)`;
+                    }
+                } else {
+                    el.classList.remove('active-lyric');
+                }
+            });
+        }
+
+        function isMobileOrIOSDevice() {
+            return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ||
+                   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        }
+
+        async function triggerStrictFileDownload(blob, fileName, mimeType = 'application/octet-stream') {
+            const typedBlob = new Blob([blob], { type: mimeType });
+
+            if (isMobileOrIOSDevice() && navigator.canShare) {
+                try {
+                    const shareFile = new File([typedBlob], fileName, { type: mimeType });
+                    if (navigator.canShare({ files: [shareFile] })) {
+                        await navigator.share({ files: [shareFile] });
+                        return;
+                    }
+                } catch (err) {
+                    if (err && err.name === 'AbortError') return;
+                }
+            }
+
+            const downloadBlob = new Blob([blob], { type: mimeType });
+            const url = URL.createObjectURL(downloadBlob);
+            const link = document.createElement('a');
+            link.style.display = 'none';
+            link.href = url;
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            setTimeout(() => {
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+            }, 3000);
+        }
+
+        async function loadAvatarImageForCard() {
+            const pathsToTry = ['img/аватарка.jpg', './img/аватарка.jpg', 'img/аватарка.png', 'img/фон.jpg'];
+
+            for (const path of pathsToTry) {
+                try {
+                    const resp = await fetch(path);
+                    if (resp.ok) {
+                        const blob = await resp.blob();
+                        const dataUrl = await new Promise((res) => {
+                            const reader = new FileReader();
+                            reader.onloadend = () => res(reader.result);
+                            reader.readAsDataURL(blob);
+                        });
+                        const loadedImg = await new Promise((res) => {
+                            const im = new Image();
+                            im.onload = () => res(im);
+                            im.onerror = () => res(null);
+                            im.src = dataUrl;
+                        });
+                        if (loadedImg) return loadedImg;
+                    }
+                } catch (e) {}
+            }
+
+            return new Promise((resolve) => {
+                const preloaded = document.getElementById('hidden-avatar-preload');
+                if (preloaded && preloaded.complete && preloaded.naturalWidth > 0 && !preloaded.dataset.failed) {
+                    resolve(preloaded);
+                    return;
+                }
+                const img = new Image();
+                img.onload = () => resolve(img);
+                img.onerror = () => resolve(null);
+                img.src = "img/аватарка.jpg";
+            });
+        }
+
+        async function downloadKeepsakeCard() {
+            const avatarImg = await loadAvatarImageForCard();
+            await renderKeepsakePostcardCanvas(avatarImg, false);
+        }
+
+        function drawHandHeart(ctx, cx, cy, size, color, glow, rotation = 0, dashed = false) {
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(rotation);
+            ctx.beginPath();
+            const s = size;
+            ctx.moveTo(0, s * 0.38);
+            ctx.bezierCurveTo(-s * 0.55, -s * 0.05, -s * 0.58, -s * 0.55, -s * 0.22, -s * 0.55);
+            ctx.bezierCurveTo(-s * 0.05, -s * 0.55, 0, -s * 0.32, 0, -s * 0.2);
+            ctx.bezierCurveTo(0, -s * 0.32, s * 0.05, -s * 0.55, s * 0.22, -s * 0.55);
+            ctx.bezierCurveTo(s * 0.58, -s * 0.55, s * 0.55, -s * 0.05, 0, s * 0.38);
+            ctx.strokeStyle = color;
+            ctx.lineWidth = dashed ? 2.5 : 4;
+            if (dashed) ctx.setLineDash([8, 8]);
+            if (glow) {
+                ctx.shadowColor = color;
+                ctx.shadowBlur = 18;
+            }
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        function renderKeepsakePostcardCanvas(photoImg, silentReturnBlob = false) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1080;
+            canvas.height = 1350;
+            const ctx = canvas.getContext('2d');
+
+            const bgGrad = ctx.createRadialGradient(540, 560, 80, 540, 675, 820);
+            bgGrad.addColorStop(0, '#1a1019');
+            bgGrad.addColorStop(0.55, '#0c080d');
+            bgGrad.addColorStop(1, '#050406');
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            drawHandHeart(ctx, 135, 250, 82, 'rgba(244, 151, 156, 0.16)', false, -0.15);
+            drawHandHeart(ctx, 120, 665, 68, 'rgba(244, 151, 156, 0.15)', false, -0.1);
+            drawHandHeart(ctx, 105, 1180, 100, 'rgba(244, 151, 156, 0.12)', false, -0.08);
+            drawHandHeart(ctx, 960, 250, 92, 'rgba(244, 151, 156, 0.14)', false, 0.18);
+            drawHandHeart(ctx, 985, 465, 86, '#ff6ea7', true, 0.22);
+
+            drawHandHeart(ctx, 130, 445, 96, '#f48fb1', true, -0.08, true);
+            ctx.save();
+            ctx.beginPath();
+            ctx.setLineDash([8, 9]);
+            ctx.strokeStyle = 'rgba(244, 143, 177, 0.65)';
+            ctx.lineWidth = 2.5;
+            ctx.moveTo(20, 555);
+            ctx.quadraticCurveTo(130, 515, 248, 505);
+            ctx.stroke();
+            ctx.restore();
+
+            ctx.strokeStyle = 'rgba(244, 151, 156, 0.45)';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(150, 66);
+            ctx.lineTo(340, 66);
+            ctx.moveTo(740, 66);
+            ctx.lineTo(930, 66);
+            ctx.stroke();
+
+            ctx.fillStyle = '#f8d0d8';
+            ctx.font = '500 32px Montserrat, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('L O V E   Q U E S T   ♡', 540, 76);
+
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.68)';
+            ctx.font = '400 18px Montserrat, sans-serif';
+            ctx.fillText('-   1   Г О Д   В М Е С Т Е   -', 540, 110);
+
+            ctx.save();
+            ctx.translate(540, 465);
+            ctx.rotate(-0.045);
+
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
+            ctx.shadowBlur = 45;
+            ctx.shadowOffsetY = 20;
+
+            const pw = 620;
+            const ph = 650;
+            ctx.fillStyle = '#dfd1c5';
+            ctx.beginPath();
+            ctx.moveTo(-pw / 2, -ph / 2);
+            for (let x = -pw / 2; x <= pw / 2; x += 30) {
+                ctx.lineTo(x, -ph / 2 + Math.sin(x * 0.15) * 2.5);
+            }
+            ctx.lineTo(pw / 2, ph / 2);
+            for (let x = pw / 2; x >= -pw / 2; x -= 30) {
+                ctx.lineTo(x, ph / 2 + Math.cos(x * 0.12) * 3);
+            }
+            ctx.closePath();
+            ctx.fill();
+            ctx.shadowBlur = 0;
+            ctx.shadowOffsetY = 0;
+
+            const imgX = -pw / 2 + 28;
+            const imgY = -ph / 2 + 28;
+            const imgW = pw - 56;
+            const imgH = 505;
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.rect(imgX, imgY, imgW, imgH);
+            ctx.clip();
+
+            const validW = photoImg ? (photoImg.naturalWidth || photoImg.width) : 0;
+            const validH = photoImg ? (photoImg.naturalHeight || photoImg.height) : 0;
+
+            if (photoImg && validW > 0 && validH > 0) {
+                const scale = Math.max(imgW / validW, imgH / validH);
+                const dw = validW * scale;
+                const dh = validH * scale;
+                ctx.drawImage(photoImg, imgX + (imgW - dw) / 2, imgY + (imgH - dh) / 2, dw, dh);
+            } else {
+                const pGrad = ctx.createLinearGradient(imgX, imgY, imgX, imgY + imgH);
+                pGrad.addColorStop(0, '#2a1829');
+                pGrad.addColorStop(1, '#120a14');
+                ctx.fillStyle = pGrad;
+                ctx.fillRect(imgX, imgY, imgW, imgH);
+                drawHandHeart(ctx, 0, -20, 120, '#f4979c', true, 0);
+            }
+            ctx.restore();
+
+            ctx.fillStyle = '#1c1311';
+            ctx.font = '600 46px Caveat, cursive';
+            ctx.textAlign = 'center';
+            ctx.fillText('365 дней ♡', 0, ph / 2 - 48);
+
+            ctx.strokeStyle = '#1c1311';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            ctx.moveTo(-110, ph / 2 - 34);
+            ctx.quadraticCurveTo(35, ph / 2 - 40, 175, ph / 2 - 36);
+            ctx.stroke();
+
+            ctx.save();
+            ctx.translate(pw / 2 - 58, -ph / 2 + 18);
+            ctx.rotate(0.22);
+            ctx.strokeStyle = '#b8b2ae';
+            ctx.lineWidth = 4;
+            ctx.shadowColor = 'rgba(0,0,0,0.6)';
+            ctx.shadowBlur = 6;
+            ctx.beginPath();
+            ctx.roundRect(-14, -42, 28, 95, 14);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.roundRect(-8, -24, 16, 66, 8);
+            ctx.stroke();
+            ctx.restore();
+
+            ctx.restore();
+
+            ctx.save();
+            ctx.translate(540, 935);
+            ctx.fillStyle = 'rgba(20, 16, 22, 0.94)';
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+            ctx.lineWidth = 1.5;
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
+            ctx.shadowBlur = 30;
+            ctx.beginPath();
+            ctx.roundRect(-455, -105, 910, 210, 14);
+            ctx.fill();
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+
+            ctx.fillStyle = '#f7eef0';
+            ctx.font = '500 68px Caveat, cursive';
+            ctx.textAlign = 'center';
+            ctx.fillText('Поздравляю с первым годом :)', 0, -20);
+            ctx.fillText('Все только начинается', 0, 56);
+
+            ctx.strokeStyle = '#d96b94';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(-85, 76);
+            ctx.lineTo(115, 68);
+            ctx.moveTo(-60, 83);
+            ctx.lineTo(95, 76);
+            ctx.stroke();
+            ctx.restore();
+
+            ctx.fillStyle = 'rgba(235, 220, 225, 0.72)';
+            ctx.font = '400 26px Montserrat, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('«Настоящая любовь начинается с того,', 540, 1110);
+            ctx.fillText('что мы оба её не хотели»', 540, 1148);
+
+            ctx.strokeStyle = 'rgba(244, 151, 156, 0.4)';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(110, 1238);
+            ctx.lineTo(300, 1238);
+            ctx.moveTo(780, 1238);
+            ctx.lineTo(970, 1238);
+            ctx.stroke();
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.roundRect(325, 1192, 430, 92, 46);
+            ctx.fillStyle = 'rgba(24, 14, 22, 0.85)';
+            ctx.fill();
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = '#ff77a9';
+            ctx.shadowColor = '#ff77a9';
+            ctx.shadowBlur = 24;
+            ctx.stroke();
+            ctx.restore();
+
+            ctx.fillStyle = '#f8e8ec';
+            ctx.font = '500 56px Caveat, cursive';
+            ctx.textAlign = 'center';
+            ctx.fillText('Я люблю тебя ♡', 540, 1255);
+
+            return new Promise((resolve) => {
+                try {
+                    canvas.toBlob(async (blob) => {
+                        if (!blob) {
+                            resolve(null);
+                            return;
+                        }
+                        if (!silentReturnBlob) {
+                            await triggerStrictFileDownload(blob, 'one-year-card.png', 'image/png');
+                        }
+                        resolve(blob);
+                    }, 'image/png');
+                } catch (securityErr) {
+
+                    if (photoImg) {
+                        resolve(renderKeepsakePostcardCanvas(null, silentReturnBlob));
+                    } else {
+                        resolve(null);
+                    }
+                }
+            });
+        }
+
+        function buildHiddenResultsHtmlString() {
+            const exportData = {
+                savedAt: new Date().toLocaleString('ru-RU'),
+                answers: userAnswers,
+                puzzlesSolved: true,
+                constellationLit: true
+            };
+            const jsonString = JSON.stringify(exportData);
+
+            return `<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Файл ответов</title>
+<style>
+  body { background:#08060c; color:#f8f2f4; font-family:'Montserrat',sans-serif; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; text-align:center; padding:24px; }
+  .box { background:#15101e; border:1px solid rgba(244,151,156,0.4); border-radius:24px; padding:32px; max-width:420px; box-shadow:0 20px 50px rgba(0,0,0,0.8); }
+  h1 { color:#f4979c; font-size:22px; margin:0 0 12px 0; }
+  p { color:rgba(255,255,255,0.7); font-size:14px; line-height:1.6; margin:0; }
+</style>
+</head>
+<body>
+  <div class="box">
+    <h1>Файл результатов сохранён 🤍</h1>
+    <p>Перешли этот сохранённый файл своему!</p>
+  </div>
+  <script id="raw-quest-answers" type="application/json">${jsonString}<\/script>
+</body>
+</html>`;
+        }
+
+        function saveGirlfriendResultsFile() {
+            const reportHtml = buildHiddenResultsHtmlString();
+            const rawBlob = new Blob([reportHtml], { type: 'text/html;charset=utf-8' });
+            triggerStrictFileDownload(rawBlob, 'результаты_квеста.html', 'text/html');
+        }
+
+        async function shareQuestFilesNative() {
+            const reportHtml = buildHiddenResultsHtmlString();
+            const answersFile = new File([reportHtml], 'результаты_квеста.html', { type: 'text/html' });
+
+            const filesToShare = [answersFile];
+
+            const avatarImg = await loadAvatarImageForCard();
+            const cardBlob = await renderKeepsakePostcardCanvas(avatarImg, true);
+
+            if (cardBlob) {
+                filesToShare.push(new File([cardBlob], '1-year-of-love-card.png', { type: 'image/png' }));
+            }
+
+            if (navigator.canShare && navigator.canShare({ files: filesToShare })) {
+                try {
+                    await navigator.share({
+                        files: filesToShare
+                    });
+                    return;
+                } catch (err) {
+                    return;
+                }
+            }
+
+            saveGirlfriendResultsFile();
+            if (cardBlob) {
+                triggerStrictFileDownload(cardBlob, '1-year-of-love-card.png', 'image/png');
+            }
+        }
+
+        function initAppleTouchIcon() {
+            try {
+                const c = document.createElement('canvas');
+                c.width = 180;
+                c.height = 180;
+                const ctx = c.getContext('2d');
+                const g = ctx.createRadialGradient(90, 70, 10, 90, 90, 120);
+                g.addColorStop(0, '#2e1536');
+                g.addColorStop(1, '#08060c');
+                ctx.fillStyle = g;
+                ctx.fillRect(0, 0, 180, 180);
+
+                drawHandHeart(ctx, 90, 98, 95, '#f4979c', true, 0);
+
+                const link = document.getElementById('apple-touch-icon-link');
+                if (link) link.href = c.toDataURL('image/png');
+            } catch (e) {}
+        }
+
+        let fileErrorTimeout = null;
+        function showInvalidFileToast() {
+            const toast = document.getElementById('file-error-toast');
+            if (!toast) return;
+            toast.classList.remove('opacity-0', '-translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            clearTimeout(fileErrorTimeout);
+            fileErrorTimeout = setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', '-translate-y-4');
+            }, 3500);
+        }
+
+        let fileSuccessTimeout = null;
+        function showSuccessFileToast(fileName) {
+            const toast = document.getElementById('file-success-toast');
+            const textEl = document.getElementById('file-success-toast-text');
+            if (!toast || !textEl) return;
+            textEl.textContent = `Файл ${fileName} загружен`;
+            toast.classList.remove('opacity-0', '-translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            clearTimeout(fileSuccessTimeout);
+            fileSuccessTimeout = setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', '-translate-y-4');
+            }, 3500);
+        }
+
+        function handleLoadAnswersFile(event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+
+            const lowerName = file.name.toLowerCase();
+            const isValidName = lowerName.endsWith('.html') && (lowerName.includes('результаты_квеста') || lowerName.includes('результаты_теста'));
+
+            if (!isValidName) {
+                showInvalidFileToast();
+                event.target.value = '';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const content = e.target.result;
+                try {
+                    const match = content.match(/<script id="raw-quest-answers"[^>]*>([\s\S]*?)<\/script>/);
+                    if (!match) {
+                        showInvalidFileToast();
+                        return;
+                    }
+                    const data = JSON.parse(match[1]);
+                    applyLoadedAnswersToPages(data.answers || data, file.name);
+                } catch (err) {
+                    showInvalidFileToast();
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function applyLoadedAnswersToPages(ansObj, loadedFileName) {
+            isReviewMode = true;
+
+            ['q1', 'q2', 'q3'].forEach(qKey => {
+                const chosenIdx = ansObj[qKey] ? ansObj[qKey].selectedIndex : null;
+                const correctIdx = QUIZ_STRUCTURE[qKey].correctIndex;
+                if (chosenIdx !== null && chosenIdx !== undefined) {
+                    userAnswers[qKey] = ansObj[qKey];
+                }
+                const container = document.getElementById(`${qKey}-options`);
+                if (container) {
+                    const buttons = container.querySelectorAll('.option-pill');
+                    buttons.forEach((btn, idx) => {
+                        btn.classList.remove('selected', 'review-green', 'review-red');
+                        if (idx === chosenIdx) {
+                            if (chosenIdx === correctIdx) {
+                                btn.classList.add('review-green');
+                            } else {
+                                btn.classList.add('review-red');
+                            }
+                        }
+                    });
+                }
+                const nextBtn = document.getElementById(`${qKey}-next-btn`);
+                if (nextBtn) nextBtn.classList.remove('btn-disabled');
+            });
+
+            const q4Area = document.getElementById('q4-textarea');
+            if (q4Area) {
+                userAnswers.q4 = ansObj.q4 || '';
+                q4Area.value = ansObj.q4 || 'Текст не был введён';
+                q4Area.readOnly = true;
+            }
+
+            const q4NextBtn = document.getElementById('q4-next-btn');
+            if (q4NextBtn) {
+                q4NextBtn.textContent = 'Закончить просмотр';
+                q4NextBtn.classList.remove('btn-disabled');
+            }
+
+            if (loadedFileName) {
+                showSuccessFileToast(loadedFileName);
+            }
+        }
+
+        function initParticles() {
+            const canvas = document.getElementById('particlesCanvas');
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            const particles = Array.from({ length: 55 }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                r: Math.random() * 1.6 + 0.4,
+                alpha: Math.random() * 0.6 + 0.15,
+                speedY: -(Math.random() * 0.2 + 0.04),
+                speedX: (Math.random() - 0.5) * 0.12,
+                twinkleSpeed: Math.random() * 0.02 + 0.005,
+                rose: Math.random() > 0.45
+            }));
+
+            function render() {
+                ctx.clearRect(0, 0, width, height);
+                for (const p of particles) {
+                    p.y += p.speedY;
+                    p.x += p.speedX;
+                    p.alpha += Math.sin(Date.now() * p.twinkleSpeed) * 0.008;
+                    if (p.y < -10) p.y = height + 10;
+                    if (p.x < -10) p.x = width + 10;
+                    if (p.x > width + 10) p.x = -10;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = p.rose
+                        ? `rgba(244, 151, 156, ${Math.max(0.1, Math.min(0.8, p.alpha))})`
+                        : `rgba(255, 245, 238, ${Math.max(0.1, Math.min(0.7, p.alpha))})`;
+                    ctx.fill();
+                }
+                requestAnimationFrame(render);
+            }
+            render();
+        }
+
+        window.onload = function () {
+            initAppleTouchIcon();
+            initParticles();
+            updateLiveTimer();
+            setInterval(updateLiveTimer, 1000);
+            initPuzzle();
+            initConstellationCanvas();
+            renderSongLyrics();
+
+            if (SAVED_ANSWERS_IN_CODE) {
+                applyLoadedAnswersToPages(SAVED_ANSWERS_IN_CODE.answers || SAVED_ANSWERS_IN_CODE);
+            }
+        };
+    </script>
+</body>
+</html>
